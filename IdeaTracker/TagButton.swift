@@ -2,12 +2,23 @@ import UIKit
 
 class TagButton: UIButton {
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+    //need to change the button color to this when it is selected...
+    var selectedColor = UIColor(red: 189/255, green: 192/255, blue: 255/255, alpha: 255/255)
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.clipsToBounds = true
         self.layer.cornerRadius = 10.0
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    //This init is called when you add via the storyboard...
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.showsTouchWhenHighlighted = true
     }
     
     

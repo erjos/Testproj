@@ -61,7 +61,7 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idea" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-zx-Pp0" userLabel="IdeaTitle">
                                 <rect key="frame" x="36" y="107" width="303" height="30"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -86,7 +86,7 @@
                                             <constraint firstAttribute="width" constant="60" id="A08-8a-rCj"/>
                                             <constraint firstAttribute="height" constant="30" id="T9T-95-TSD"/>
                                         </constraints>
-                                        <state key="normal" title="Tag"/>
+                                        <state key="normal" title="Book"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWm-93-lRx" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
                                         <rect key="frame" x="70" y="0.0" width="60" height="30"/>
@@ -95,7 +95,7 @@
                                             <constraint firstAttribute="width" constant="60" id="S1W-Hr-3Y3"/>
                                             <constraint firstAttribute="height" constant="30" id="iHw-Po-AKA"/>
                                         </constraints>
-                                        <state key="normal" title="Tag"/>
+                                        <state key="normal" title="Movie"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pc8-bW-pqe" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
                                         <rect key="frame" x="140" y="0.0" width="60" height="30"/>
@@ -104,7 +104,7 @@
                                             <constraint firstAttribute="width" constant="60" id="KlA-zB-6Yf"/>
                                             <constraint firstAttribute="height" constant="30" id="nUW-xl-QyP"/>
                                         </constraints>
-                                        <state key="normal" title="Tag"/>
+                                        <state key="normal" title="Tech"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-xR-8zD" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
                                         <rect key="frame" x="210" y="0.0" width="60" height="30"/>
@@ -113,12 +113,12 @@
                                             <constraint firstAttribute="width" constant="60" id="WZA-b3-k9o"/>
                                             <constraint firstAttribute="height" constant="30" id="bcW-Z1-RUI"/>
                                         </constraints>
-                                        <state key="normal" title="Tag"/>
+                                        <state key="normal" title="Quote"/>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.30324098578283731" green="0.63129043419181641" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
