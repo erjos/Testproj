@@ -124,16 +124,69 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLQ-Rs-aKT">
+                                <rect key="frame" x="242" y="509" width="80" height="36"/>
+                                <color key="backgroundColor" red="0.58659140992819014" green="0.86414445835321185" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="mow-ld-k69"/>
+                                    <constraint firstAttribute="width" constant="80" id="olf-Ym-fQW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="27"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
+                                <rect key="frame" x="36" y="402" width="303" height="57"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SGI-cZ-eWr">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="48U-Xh-6gC">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1z-vl-NFv" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" red="0.42075106610000002" green="0.47509263860000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Z1z-vl-NFv" secondAttribute="trailing" id="UWi-6B-JJK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Z1z-vl-NFv" secondAttribute="bottom" id="XrQ-C5-fQg"/>
+                                            <constraint firstItem="Z1z-vl-NFv" firstAttribute="top" secondItem="48U-Xh-6gC" secondAttribute="top" id="j3V-WO-IVM"/>
+                                            <constraint firstItem="Z1z-vl-NFv" firstAttribute="leading" secondItem="48U-Xh-6gC" secondAttribute="leading" id="m7l-3H-fSd"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.30324098578283731" green="0.63129043419181641" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.29541240749682562" green="0.62514911122675754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DLQ-Rs-aKT" firstAttribute="trailing" secondItem="u8x-TE-QMf" secondAttribute="trailing" id="18i-4o-dHL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tfy-tc-a3R" secondAttribute="trailing" constant="20" id="4Gh-Ym-inp"/>
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="7XH-dU-Itc"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="C6A-sn-PrC" secondAttribute="bottom" constant="22" id="9bo-PS-dPC"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
+                            <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heZ-zx-Pp0" secondAttribute="trailing" constant="20" id="Orx-Q7-Da8"/>
+                            <constraint firstItem="efh-DW-yhT" firstAttribute="top" secondItem="DLQ-Rs-aKT" secondAttribute="bottom" constant="122" id="WDK-hY-L9c"/>
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="22" id="WSc-8w-Y97"/>
+                            <constraint firstItem="DLQ-Rs-aKT" firstAttribute="top" secondItem="tfy-tc-a3R" secondAttribute="bottom" constant="50" id="bBe-FC-MXJ"/>
                             <constraint firstItem="u8x-TE-QMf" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="grd-VX-1CY"/>
+                            <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="u8x-TE-QMf" secondAttribute="bottom" constant="8" id="ho3-hx-ZTG"/>
                             <constraint firstItem="u8x-TE-QMf" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="25" id="jlg-Uo-pZL"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="87" id="kMK-19-doq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rII-ZD-TnA" secondAttribute="trailing" constant="20" id="khs-J5-AbT"/>
