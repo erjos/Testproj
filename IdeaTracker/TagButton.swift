@@ -19,8 +19,14 @@ class TagButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.showsTouchWhenHighlighted = true
+        
+        //want this action triggered for all buttons of this type
+        self.addTarget(self, action: #selector(self.highlightButton), for: .allTouchEvents)
     }
     
+    func highlightButton(){
+        //code
+    }
     
     //Add selected and deselected characteristics
     //DESELECT: 7374FF
