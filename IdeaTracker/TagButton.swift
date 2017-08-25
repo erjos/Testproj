@@ -4,6 +4,7 @@ class TagButton: UIButton {
     
     //need to change the button color to this when it is selected...
     var selectedColor = UIColor(red: 189/255, green: 192/255, blue: 255/255, alpha: 255/255)
+    var defaultColor = UIColor(red: 115/255, green: 116/255, blue: 255/255, alpha: 255/255)
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -21,11 +22,12 @@ class TagButton: UIButton {
         self.showsTouchWhenHighlighted = true
         
         //want this action triggered for all buttons of this type
-        self.addTarget(self, action: #selector(self.highlightButton), for: .allTouchEvents)
+        self.addTarget(self, action: #selector(self.highlightButton), for: .touchDown)
     }
     
     func highlightButton(){
-        //code
+        let isSelected = (backgroundColor == selectedColor)
+        backgroundColor = isSelected ? defaultColor : selectedColor
     }
     
     //Add selected and deselected characteristics

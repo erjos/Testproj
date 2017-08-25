@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IdeaTracker/TagButton.swift"
-            timestampString = "525314757.884757"
+            timestampString = "525315234.992823"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "highlightButton()"
             landmarkType = "7">
          </BreakpointContent>
