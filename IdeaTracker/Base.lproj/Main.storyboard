@@ -170,6 +170,9 @@
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pdd-vE-YOi" id="Q6K-L0-pQI"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.29541240749682562" green="0.62514911122675754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
