@@ -71,7 +71,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="QGt-D8-Lb3"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -104,7 +104,7 @@
                                             <constraint firstAttribute="width" constant="60" id="KlA-zB-6Yf"/>
                                             <constraint firstAttribute="height" constant="30" id="nUW-xl-QyP"/>
                                         </constraints>
-                                        <state key="normal" title="Tech"/>
+                                        <state key="normal" title="Quote"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-xR-8zD" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
                                         <rect key="frame" x="210" y="0.0" width="60" height="30"/>
@@ -113,16 +113,26 @@
                                             <constraint firstAttribute="width" constant="60" id="WZA-b3-k9o"/>
                                             <constraint firstAttribute="height" constant="30" id="bcW-Z1-RUI"/>
                                         </constraints>
-                                        <state key="normal" title="Quote"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Idea"/>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Idea Editor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6A-sn-PrC">
+                                <rect key="frame" x="114" y="42" width="146" height="43"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.30324098578283731" green="0.63129043419181641" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="C6A-sn-PrC" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="7XH-dU-Itc"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
+                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="C6A-sn-PrC" secondAttribute="bottom" constant="22" id="9bo-PS-dPC"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heZ-zx-Pp0" secondAttribute="trailing" constant="20" id="Orx-Q7-Da8"/>
+                            <constraint firstItem="C6A-sn-PrC" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="22" id="WSc-8w-Y97"/>
                             <constraint firstItem="u8x-TE-QMf" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="grd-VX-1CY"/>
                             <constraint firstItem="u8x-TE-QMf" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="25" id="jlg-Uo-pZL"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="87" id="kMK-19-doq"/>

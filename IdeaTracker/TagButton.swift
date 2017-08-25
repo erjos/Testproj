@@ -6,6 +6,9 @@ class TagButton: UIButton {
     var selectedColor = UIColor(red: 189/255, green: 192/255, blue: 255/255, alpha: 255/255)
     var defaultColor = UIColor(red: 115/255, green: 116/255, blue: 255/255, alpha: 255/255)
     
+    //TODO: could use something like this to identify if the title of the tag should be saved to the DB
+    var isTagActive: Bool?
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.clipsToBounds = true
@@ -16,7 +19,7 @@ class TagButton: UIButton {
         super.init(frame: frame)
     }
     
-    //This init is called when you add via the storyboard...
+    //This init is called when you add via the storyboard.
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.showsTouchWhenHighlighted = true
@@ -29,8 +32,4 @@ class TagButton: UIButton {
         let isSelected = (backgroundColor == selectedColor)
         backgroundColor = isSelected ? defaultColor : selectedColor
     }
-    
-    //Add selected and deselected characteristics
-    //DESELECT: 7374FF
-    //SELECT: BDC0FF
 }
