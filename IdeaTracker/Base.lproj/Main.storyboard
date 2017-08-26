@@ -76,48 +76,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u8x-TE-QMf">
-                                <rect key="frame" x="52" y="364" width="270" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of8-em-nK0" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
-                                        <color key="backgroundColor" red="0.44914482729874627" green="0.45435532895783548" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="A08-8a-rCj"/>
-                                            <constraint firstAttribute="height" constant="30" id="T9T-95-TSD"/>
-                                        </constraints>
-                                        <state key="normal" title="Book"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWm-93-lRx" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="0.0" width="60" height="30"/>
-                                        <color key="backgroundColor" red="0.44914482729999999" green="0.45435532899999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="S1W-Hr-3Y3"/>
-                                            <constraint firstAttribute="height" constant="30" id="iHw-Po-AKA"/>
-                                        </constraints>
-                                        <state key="normal" title="Movie"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pc8-bW-pqe" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
-                                        <rect key="frame" x="140" y="0.0" width="60" height="30"/>
-                                        <color key="backgroundColor" red="0.44914482729999999" green="0.45435532899999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="KlA-zB-6Yf"/>
-                                            <constraint firstAttribute="height" constant="30" id="nUW-xl-QyP"/>
-                                        </constraints>
-                                        <state key="normal" title="Quote"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-xR-8zD" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
-                                        <rect key="frame" x="210" y="0.0" width="60" height="30"/>
-                                        <color key="backgroundColor" red="0.44914482729999999" green="0.45435532899999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="WZA-b3-k9o"/>
-                                            <constraint firstAttribute="height" constant="30" id="bcW-Z1-RUI"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Idea"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Idea Editor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6A-sn-PrC">
                                 <rect key="frame" x="114" y="42" width="146" height="43"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="32"/>
@@ -137,8 +95,11 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
-                                <rect key="frame" x="36" y="402" width="303" height="57"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="36" y="369" width="303" height="58"/>
+                                <color key="backgroundColor" red="0.29541240749999997" green="0.62514911120000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="IqH-bQ-2uA"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SGI-cZ-eWr">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -146,28 +107,13 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="48U-Xh-6gC">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="48U-Xh-6gC" customClass="TagCollectionViewCell" customModule="IdeaTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1z-vl-NFv" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <color key="backgroundColor" red="0.42075106610000002" green="0.47509263860000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Z1z-vl-NFv" secondAttribute="trailing" id="UWi-6B-JJK"/>
-                                            <constraint firstAttribute="bottom" secondItem="Z1z-vl-NFv" secondAttribute="bottom" id="XrQ-C5-fQg"/>
-                                            <constraint firstItem="Z1z-vl-NFv" firstAttribute="top" secondItem="48U-Xh-6gC" secondAttribute="top" id="j3V-WO-IVM"/>
-                                            <constraint firstItem="Z1z-vl-NFv" firstAttribute="leading" secondItem="48U-Xh-6gC" secondAttribute="leading" id="m7l-3H-fSd"/>
-                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -177,7 +123,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.29541240749682562" green="0.62514911122675754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="DLQ-Rs-aKT" firstAttribute="trailing" secondItem="u8x-TE-QMf" secondAttribute="trailing" id="18i-4o-dHL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DLQ-Rs-aKT" secondAttribute="trailing" constant="37" id="1ba-iL-ik6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfy-tc-a3R" secondAttribute="trailing" constant="20" id="4Gh-Ym-inp"/>
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="7XH-dU-Itc"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
@@ -185,18 +131,16 @@
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heZ-zx-Pp0" secondAttribute="trailing" constant="20" id="Orx-Q7-Da8"/>
+                            <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="SHd-VH-B8F"/>
                             <constraint firstItem="efh-DW-yhT" firstAttribute="top" secondItem="DLQ-Rs-aKT" secondAttribute="bottom" constant="122" id="WDK-hY-L9c"/>
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="22" id="WSc-8w-Y97"/>
-                            <constraint firstItem="DLQ-Rs-aKT" firstAttribute="top" secondItem="tfy-tc-a3R" secondAttribute="bottom" constant="50" id="bBe-FC-MXJ"/>
-                            <constraint firstItem="u8x-TE-QMf" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="grd-VX-1CY"/>
-                            <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="u8x-TE-QMf" secondAttribute="bottom" constant="8" id="ho3-hx-ZTG"/>
-                            <constraint firstItem="u8x-TE-QMf" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="25" id="jlg-Uo-pZL"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="87" id="kMK-19-doq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rII-ZD-TnA" secondAttribute="trailing" constant="20" id="khs-J5-AbT"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="30" id="p4Z-OO-Dl1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="tfy-tc-a3R" id="O3s-Lr-tai"/>
                         <outlet property="notesTextView" destination="rII-ZD-TnA" id="c8D-HM-ccz"/>
                     </connections>
                 </viewController>

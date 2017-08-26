@@ -15,6 +15,8 @@
 		866DA6A21F4F83AC00659B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866DA6A01F4F83AC00659B0C /* LaunchScreen.storyboard */; };
 		866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AB1F4F88E200659B0C /* EditorViewController.swift */; };
 		866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AD1F4F9BEB00659B0C /* TagButton.swift */; };
+		86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */; };
+		86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		866DA6A31F4F83AC00659B0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866DA6AB1F4F88E200659B0C /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		866DA6AD1F4F9BEB00659B0C /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
+		86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				866DA6AD1F4F9BEB00659B0C /* TagButton.swift */,
+				86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */,
+				86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */,
 			);
 			name = CustomControls;
 			sourceTree = "<group>";
@@ -142,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				866DA6A21F4F83AC00659B0C /* LaunchScreen.storyboard in Resources */,
+				86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */,
 				866DA69F1F4F83AC00659B0C /* Assets.xcassets in Resources */,
 				866DA69A1F4F83AC00659B0C /* Main.storyboard in Resources */,
 			);
@@ -157,6 +164,7 @@
 				866DA6971F4F83AC00659B0C /* ViewController.swift in Sources */,
 				866DA69D1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld in Sources */,
 				866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */,
+				86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */,
 				866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */,
 				866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */,
 			);
