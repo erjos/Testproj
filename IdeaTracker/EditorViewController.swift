@@ -7,6 +7,8 @@ class EditorViewController: UIViewController {
     
     fileprivate let reuseIdentifier = "TagCell"
     
+    let defaultTags = ["Book", "Movie", "Quote", "Idea", "5", "6", "7", "8", "9", "10"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         styleNotesView()
@@ -29,14 +31,17 @@ extension EditorViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return defaultTags.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! TagCollectionViewCell
-        cell.button.setTitle("Book", for: .normal)
+        
+        let title = defaultTags[indexPath.row]
+        cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
+        cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: 60, height: 30)
         // Configure the cell
         
         //TODO: Ideal height for tag cells is 30 x 60

@@ -95,10 +95,10 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
-                                <rect key="frame" x="36" y="369" width="303" height="58"/>
+                                <rect key="frame" x="36" y="369" width="303" height="100"/>
                                 <color key="backgroundColor" red="0.29541240749999997" green="0.62514911120000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="IqH-bQ-2uA"/>
+                                    <constraint firstAttribute="height" constant="100" id="IqH-bQ-2uA"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SGI-cZ-eWr">
                                     <size key="itemSize" width="50" height="50"/>
