@@ -156,8 +156,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Pir-e4-sIe" id="QW7-cJ-Bfq"/>
                         <outlet property="collectionView" destination="tfy-tc-a3R" id="O3s-Lr-tai"/>
                         <outlet property="notesTextView" destination="rII-ZD-TnA" id="c8D-HM-ccz"/>
+                        <outlet property="savebutton" destination="DLQ-Rs-aKT" id="Xg3-Yl-FeE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzv-MZ-2IP" userLabel="First Responder" sceneMemberID="firstResponder"/>

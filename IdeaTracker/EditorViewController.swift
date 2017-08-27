@@ -2,6 +2,8 @@ import UIKit
 
 class EditorViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var savebutton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var notesTextView: UITextView!
     
@@ -11,15 +13,18 @@ class EditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        styleNotesView()
+        setupStyle()
         self.collectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
     
-    private func styleNotesView(){
-        notesTextView.clipsToBounds = true
-        notesTextView.layer.cornerRadius = 10.0
+    private func setupStyle(){
+        
+        //TODO: fix round corners so it can take any number of views from 1 ...
+        notesTextView.roundCorners()
+        backButton.roundCorners()
+        savebutton.roundCorners()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

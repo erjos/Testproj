@@ -11,8 +11,7 @@ class TagButton: UIButton {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 10.0
+        self.roundCorners()
     }
     
     override init(frame: CGRect) {
@@ -31,5 +30,14 @@ class TagButton: UIButton {
     func highlightButton(){
         let isSelected = (backgroundColor == selectedColor)
         backgroundColor = isSelected ? defaultColor : selectedColor
+    }
+}
+
+extension UIView{
+    
+    //Rounds UIView corners with a cornerRadius of 10.0
+    func roundCorners(){
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 10.0
     }
 }
