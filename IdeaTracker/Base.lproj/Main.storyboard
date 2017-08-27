@@ -82,8 +82,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLQ-Rs-aKT">
-                                <rect key="frame" x="242" y="509" width="80" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLQ-Rs-aKT">
+                                <rect key="frame" x="259" y="489" width="80" height="36"/>
                                 <color key="backgroundColor" red="0.58659140992819014" green="0.86414445835321185" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="mow-ld-k69"/>
@@ -124,16 +124,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.29541240749682562" green="0.62514911122675754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="DLQ-Rs-aKT" secondAttribute="trailing" constant="37" id="1ba-iL-ik6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DLQ-Rs-aKT" secondAttribute="trailing" constant="20" id="1ba-iL-ik6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfy-tc-a3R" secondAttribute="trailing" constant="20" id="4Gh-Ym-inp"/>
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="7XH-dU-Itc"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="C6A-sn-PrC" secondAttribute="bottom" constant="22" id="9bo-PS-dPC"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
+                            <constraint firstItem="DLQ-Rs-aKT" firstAttribute="top" secondItem="tfy-tc-a3R" secondAttribute="bottom" constant="20" id="L4O-kD-Ek0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heZ-zx-Pp0" secondAttribute="trailing" constant="20" id="Orx-Q7-Da8"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="SHd-VH-B8F"/>
-                            <constraint firstItem="efh-DW-yhT" firstAttribute="top" secondItem="DLQ-Rs-aKT" secondAttribute="bottom" constant="122" id="WDK-hY-L9c"/>
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="22" id="WSc-8w-Y97"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="87" id="kMK-19-doq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rII-ZD-TnA" secondAttribute="trailing" constant="20" id="khs-J5-AbT"/>
