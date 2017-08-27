@@ -41,17 +41,12 @@ extension EditorViewController: UICollectionViewDataSource{
         let title = defaultTags[indexPath.row]
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
-        //cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: 60, height: 30)
         // Configure the cell
-        
-        //TODO: Ideal h*w for tag cells is 30 x 60
         return cell
     }
 }
 
-
-//Only the left inset is in use currently
-fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 40.0, bottom: 10.0, right: 30.0)
+//fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 40.0, bottom: 10.0, right: 30.0)
 
 extension EditorViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

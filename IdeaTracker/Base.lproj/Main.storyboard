@@ -42,6 +42,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLQ-Rs-aKT">
-                                <rect key="frame" x="259" y="489" width="80" height="36"/>
+                                <rect key="frame" x="259" y="459" width="80" height="36"/>
                                 <color key="backgroundColor" red="0.58659140992819014" green="0.86414445835321185" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="mow-ld-k69"/>
@@ -95,10 +96,10 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
-                                <rect key="frame" x="36" y="369" width="303" height="100"/>
+                                <rect key="frame" x="36" y="369" width="303" height="70"/>
                                 <color key="backgroundColor" red="0.29541240749999997" green="0.62514911120000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="IqH-bQ-2uA"/>
+                                    <constraint firstAttribute="height" constant="70" id="IqH-bQ-2uA"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SGI-cZ-eWr">
                                     <size key="itemSize" width="50" height="50"/>
@@ -121,6 +122,18 @@
                                     <outlet property="delegate" destination="Pdd-vE-YOi" id="zzv-JA-PGY"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pir-e4-sIe">
+                                <rect key="frame" x="36" y="459" width="80" height="36"/>
+                                <color key="backgroundColor" red="0.58659140990000003" green="0.86414445839999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="IUk-JY-gZ9"/>
+                                    <constraint firstAttribute="width" constant="80" id="qMm-HL-hbc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="27"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29541240749682562" green="0.62514911122675754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -129,6 +142,7 @@
                             <constraint firstItem="C6A-sn-PrC" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="7XH-dU-Itc"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="C6A-sn-PrC" secondAttribute="bottom" constant="22" id="9bo-PS-dPC"/>
+                            <constraint firstItem="Pir-e4-sIe" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="G2C-uw-zYy"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
                             <constraint firstItem="DLQ-Rs-aKT" firstAttribute="top" secondItem="tfy-tc-a3R" secondAttribute="bottom" constant="20" id="L4O-kD-Ek0"/>
@@ -138,6 +152,7 @@
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="87" id="kMK-19-doq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rII-ZD-TnA" secondAttribute="trailing" constant="20" id="khs-J5-AbT"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="30" id="p4Z-OO-Dl1"/>
+                            <constraint firstItem="Pir-e4-sIe" firstAttribute="top" secondItem="tfy-tc-a3R" secondAttribute="bottom" constant="20" id="vXJ-oh-XCo"/>
                         </constraints>
                     </view>
                     <connections>
