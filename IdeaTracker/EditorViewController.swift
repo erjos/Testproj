@@ -41,10 +41,31 @@ extension EditorViewController: UICollectionViewDataSource{
         let title = defaultTags[indexPath.row]
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
-        cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: 60, height: 30)
+        //cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: 60, height: 30)
         // Configure the cell
         
-        //TODO: Ideal height for tag cells is 30 x 60
+        //TODO: Ideal h*w for tag cells is 30 x 60
         return cell
+    }
+}
+
+
+//Only the left inset is in use currently
+fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 40.0, bottom: 10.0, right: 30.0)
+
+extension EditorViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let standardTagWidth: CGFloat = 60
+        let standardTagHeight: CGFloat = 30
+        
+        //let itemsPerRow:CGFloat = 4
+        //intended to Calculates all the padding that the row will contain
+        //let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
+        
+        let availableWidth = view.frame.width //- paddingSpace
+        
+        //let widthPerItem = availableWidth / itemsPerRow
+        return CGSize(width: standardTagWidth, height: standardTagHeight)
     }
 }

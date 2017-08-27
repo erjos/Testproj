@@ -118,6 +118,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Pdd-vE-YOi" id="Q6K-L0-pQI"/>
+                                    <outlet property="delegate" destination="Pdd-vE-YOi" id="zzv-JA-PGY"/>
                                 </connections>
                             </collectionView>
                         </subviews>
