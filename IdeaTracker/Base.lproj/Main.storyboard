@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="940" y="137"/>
         </scene>
-        <!--Editor View Controller-->
+        <!--Idea Editor-->
         <scene sceneID="HH8-Ru-04y">
             <objects>
                 <viewController id="Pdd-vE-YOi" customClass="EditorViewController" customModule="IdeaTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,13 +61,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idea" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-zx-Pp0" userLabel="IdeaTitle">
-                                <rect key="frame" x="36" y="151" width="303" height="30"/>
+                                <rect key="frame" x="36" y="94" width="303" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rII-ZD-TnA">
-                                <rect key="frame" x="36" y="211" width="303" height="172"/>
+                                <rect key="frame" x="36" y="154" width="303" height="172"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="QGt-D8-Lb3"/>
@@ -77,38 +77,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Idea Editor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6A-sn-PrC">
-                                <rect key="frame" x="114" y="86" width="146" height="43"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="32"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLQ-Rs-aKT">
-                                <rect key="frame" x="259" y="581" width="80" height="36"/>
-                                <color key="backgroundColor" red="0.58659140992819014" green="0.86414445835321185" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="mow-ld-k69"/>
-                                    <constraint firstAttribute="width" constant="80" id="olf-Ym-fQW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="27"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pir-e4-sIe">
-                                <rect key="frame" x="36" y="581" width="80" height="36"/>
-                                <color key="backgroundColor" red="0.58659140990000003" green="0.86414445839999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="IUk-JY-gZ9"/>
-                                    <constraint firstAttribute="width" constant="80" id="qMm-HL-hbc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="27"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
-                                <rect key="frame" x="36" y="413" width="303" height="70"/>
+                                <rect key="frame" x="36" y="356" width="303" height="70"/>
                                 <color key="backgroundColor" red="0.29541240749999997" green="0.62514911120000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="IqH-bQ-2uA"/>
@@ -137,30 +107,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.29541240749682562" green="0.62514911122675754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="DLQ-Rs-aKT" secondAttribute="trailing" constant="20" id="1ba-iL-ik6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfy-tc-a3R" secondAttribute="trailing" constant="20" id="4Gh-Ym-inp"/>
-                            <constraint firstItem="efh-DW-yhT" firstAttribute="top" secondItem="Pir-e4-sIe" secondAttribute="bottom" constant="50" id="6Wu-Ck-8ZE"/>
-                            <constraint firstItem="C6A-sn-PrC" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="7XH-dU-Itc"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
-                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="C6A-sn-PrC" secondAttribute="bottom" constant="22" id="9bo-PS-dPC"/>
-                            <constraint firstItem="Pir-e4-sIe" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="G2C-uw-zYy"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heZ-zx-Pp0" secondAttribute="trailing" constant="20" id="Orx-Q7-Da8"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="SHd-VH-B8F"/>
-                            <constraint firstItem="C6A-sn-PrC" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="22" id="WSc-8w-Y97"/>
-                            <constraint firstItem="efh-DW-yhT" firstAttribute="top" secondItem="DLQ-Rs-aKT" secondAttribute="bottom" constant="50" id="cgW-oH-rB5"/>
-                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="87" id="kMK-19-doq"/>
+                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="30" id="kMK-19-doq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rII-ZD-TnA" secondAttribute="trailing" constant="20" id="khs-J5-AbT"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="30" id="p4Z-OO-Dl1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OLj-Oe-Gvq"/>
+                    <navigationItem key="navigationItem" title="Idea Editor" id="OLj-Oe-Gvq">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ui9-cO-q8A"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="backButton" destination="Pir-e4-sIe" id="QW7-cJ-Bfq"/>
                         <outlet property="collectionView" destination="tfy-tc-a3R" id="O3s-Lr-tai"/>
                         <outlet property="notesTextView" destination="rII-ZD-TnA" id="c8D-HM-ccz"/>
-                        <outlet property="savebutton" destination="DLQ-Rs-aKT" id="Xg3-Yl-FeE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzv-MZ-2IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,9 +135,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HRl-C2-1ks" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6l9-8R-pNg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6l9-8R-pNg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
