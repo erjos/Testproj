@@ -6,7 +6,7 @@ class EditorViewController: UIViewController {
     
     fileprivate let reuseIdentifier = "TagCell"
     
-    let defaultTags = ["+", "Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
+    let defaultTags = ["Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
