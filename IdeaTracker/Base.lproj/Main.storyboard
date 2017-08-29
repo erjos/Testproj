@@ -71,6 +71,13 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-gU-oVg" userLabel="Stroke">
+                                <rect key="frame" x="16" y="123" width="343" height="1"/>
+                                <color key="backgroundColor" red="0.33018718270000003" green="0.23108134890000001" blue="0.137448823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Wfn-2N-S0j"/>
+                                </constraints>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rII-ZD-TnA">
                                 <rect key="frame" x="27.5" y="134" width="320" height="172"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,10 +91,11 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
-                                <rect key="frame" x="36" y="336" width="303" height="70"/>
-                                <color key="backgroundColor" red="0.88905446399999999" green="0.89289161240000003" blue="0.89861595809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="27.5" y="336" width="320" height="70"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="IqH-bQ-2uA"/>
+                                    <constraint firstAttribute="width" constant="320" id="hRK-Dp-yNS"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SGI-cZ-eWr">
                                     <size key="itemSize" width="50" height="50"/>
@@ -110,15 +118,22 @@
                                     <outlet property="delegate" destination="Pdd-vE-YOi" id="zzv-JA-PGY"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-Gh-ZoR" userLabel="Tag Info">
+                                <rect key="frame" x="28" y="438" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.33018718270000003" green="0.23108134890000001" blue="0.137448823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.88905446399777222" green="0.89289161236194226" blue="0.89861595812182737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="tfy-tc-a3R" secondAttribute="trailing" constant="20" id="4Gh-Ym-inp"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="DbN-yB-2hU"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="EB2-AH-09Z"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="Git-ev-MeM"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="20" id="IXd-ZJ-S8c"/>
-                            <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
+                            <constraint firstItem="cMS-gU-oVg" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="9" id="WYq-nA-WO7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cMS-gU-oVg" secondAttribute="trailing" id="Wwq-43-qL6"/>
+                            <constraint firstItem="cMS-gU-oVg" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" id="dtv-R1-l0N"/>
+                            <constraint firstItem="tfy-tc-a3R" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="gk0-eG-Y7J"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="20" id="hAP-iV-CtJ"/>
                         </constraints>
                     </view>

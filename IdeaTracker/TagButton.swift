@@ -2,7 +2,8 @@ import UIKit
 
 class TagButton: UIButton {
     
-    //need to change the button color to this when it is selected...
+    //potential names: scripter, scriptor, scriptr, skript
+    //logo - horizontal pencil in white on dark brown, or light brown on dark brown
     
     
     var selectedColor = UIColor(red: 193/255, green: 169/255, blue: 124/255, alpha: 255/255)
@@ -10,8 +11,9 @@ class TagButton: UIButton {
     //nice light brown: 193 169 124
     
     //dark brown: status bar current: 119 83 50
-    var defaultColor = UIColor(red: 119/255, green: 83/255, blue: 50/255, alpha: 200/255)
+    var defaultColor = UIColor(red: 119/255, green: 83/255, blue: 50/255, alpha: 255/255)
     
+    //blueish purples below
 //    var selectedColor = UIColor(red: 189/255, green: 192/255, blue: 255/255, alpha: 255/255)
 //    var defaultColor = UIColor(red: 115/255, green: 116/255, blue: 255/255, alpha: 255/255)
     
