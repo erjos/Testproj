@@ -71,7 +71,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-gU-oVg" userLabel="Stroke">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-gU-oVg" userLabel="Stroke">
                                 <rect key="frame" x="16" y="123" width="343" height="1"/>
                                 <color key="backgroundColor" red="0.33018718270000003" green="0.23108134890000001" blue="0.137448823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -90,6 +90,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUo-nc-O2b" userLabel="Stroke">
+                                <rect key="frame" x="16" y="307" width="343" height="1"/>
+                                <color key="backgroundColor" red="0.33018718270000003" green="0.23108134890000001" blue="0.137448823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="qMZ-m6-GPI"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
                                 <rect key="frame" x="27.5" y="336" width="320" height="70"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,9 +125,8 @@
                                     <outlet property="delegate" destination="Pdd-vE-YOi" id="zzv-JA-PGY"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-Gh-ZoR" userLabel="Tag Info">
-                                <rect key="frame" x="28" y="438" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-Gh-ZoR" userLabel="Tag Info">
+                                <rect key="frame" x="26" y="426" width="22" height="22"/>
                                 <color key="tintColor" red="0.33018718270000003" green="0.23108134890000001" blue="0.137448823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </button>
                         </subviews>
@@ -129,12 +135,17 @@
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="DbN-yB-2hU"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="EB2-AH-09Z"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="Git-ev-MeM"/>
+                            <constraint firstItem="wUo-nc-O2b" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="1" id="HB8-tU-bDq"/>
                             <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="20" id="IXd-ZJ-S8c"/>
+                            <constraint firstItem="e0y-Gh-ZoR" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="10" id="RAc-Qb-nAi"/>
+                            <constraint firstItem="e0y-Gh-ZoR" firstAttribute="top" secondItem="tfy-tc-a3R" secondAttribute="bottom" constant="20" id="WWL-SX-Rgh"/>
                             <constraint firstItem="cMS-gU-oVg" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="9" id="WYq-nA-WO7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cMS-gU-oVg" secondAttribute="trailing" id="Wwq-43-qL6"/>
                             <constraint firstItem="cMS-gU-oVg" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" id="dtv-R1-l0N"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="gk0-eG-Y7J"/>
                             <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="20" id="hAP-iV-CtJ"/>
+                            <constraint firstItem="wUo-nc-O2b" firstAttribute="trailing" secondItem="pAh-Pf-cBF" secondAttribute="trailingMargin" id="jMK-EZ-7TH"/>
+                            <constraint firstItem="wUo-nc-O2b" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" id="qHe-e3-Iqc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OLj-Oe-Gvq">

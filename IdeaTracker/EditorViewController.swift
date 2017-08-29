@@ -12,6 +12,13 @@ class EditorViewController: UIViewController {
         super.viewDidLoad()
         setupStyle()
         self.collectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        let logo = UIImage(named: "Pencil")
+        imageView.image = logo
+        //let imagView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
     }
     
     private func setupStyle(){
