@@ -17,7 +17,6 @@ class EditorViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         let logo = UIImage(named: "Pencil")
         imageView.image = logo
-        //let imagView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
     }
     

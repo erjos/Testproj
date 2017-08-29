@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Ideas-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IdeaTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                             <constraint firstItem="AeW-NH-hTv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pzE-35-1Mb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Ideas" id="8y8-w9-VHk">
+                    <navigationItem key="navigationItem" id="8y8-w9-VHk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wb8-gE-x1b">
                             <connections>
                                 <segue destination="Pdd-vE-YOi" kind="show" id="Yn2-Lj-SNr"/>
