@@ -20,7 +20,7 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU9-El-XdR" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.42075106610000002" green="0.47509263860000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.75832672377326571" green="0.66187900776167752" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal" title="Button">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>

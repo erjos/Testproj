@@ -17,7 +17,7 @@ class EditorViewController: UIViewController {
     private func setupStyle(){
         
         //TODO: fix round corners so it can take any number of views from 1 ...
-        notesTextView.roundCorners()
+        //notesTextView.roundCorners()
     }
     
     override func didReceiveMemoryWarning() {

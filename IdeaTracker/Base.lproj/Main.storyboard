@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="940" y="137"/>
         </scene>
-        <!--Idea Editor-->
+        <!--Editor View Controller-->
         <scene sceneID="HH8-Ru-04y">
             <objects>
                 <viewController id="Pdd-vE-YOi" customClass="EditorViewController" customModule="IdeaTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,17 +60,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idea" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-zx-Pp0" userLabel="IdeaTitle">
-                                <rect key="frame" x="36" y="94" width="303" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Idea" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-zx-Pp0" userLabel="IdeaTitle">
+                                <rect key="frame" x="27.5" y="84" width="320" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="gXM-Hs-9Vb"/>
+                                    <constraint firstAttribute="height" constant="30" id="kxp-Iu-gFJ"/>
+                                </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rII-ZD-TnA">
-                                <rect key="frame" x="36" y="154" width="303" height="172"/>
+                                <rect key="frame" x="27.5" y="134" width="320" height="172"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="172" id="QGt-D8-Lb3"/>
+                                    <constraint firstAttribute="height" constant="172" id="Bdj-sM-IJa"/>
+                                    <constraint firstAttribute="width" constant="320" id="IPH-vX-WAb"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -78,8 +84,8 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-tc-a3R">
-                                <rect key="frame" x="36" y="356" width="303" height="70"/>
-                                <color key="backgroundColor" red="0.81023482950000003" green="0.8998176591" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="36" y="336" width="303" height="70"/>
+                                <color key="backgroundColor" red="0.88905446399999999" green="0.89289161240000003" blue="0.89861595809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="IqH-bQ-2uA"/>
                                 </constraints>
@@ -105,20 +111,18 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.81023482954256354" green="0.89981765907186273" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.88905446399777222" green="0.89289161236194226" blue="0.89861595812182737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="tfy-tc-a3R" secondAttribute="trailing" constant="20" id="4Gh-Ym-inp"/>
-                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="7ZE-Fg-w2j"/>
-                            <constraint firstItem="rII-ZD-TnA" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="HO4-Wa-VeK"/>
+                            <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="DbN-yB-2hU"/>
+                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="EB2-AH-09Z"/>
+                            <constraint firstItem="rII-ZD-TnA" firstAttribute="centerX" secondItem="pAh-Pf-cBF" secondAttribute="centerX" id="Git-ev-MeM"/>
+                            <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="20" id="IXd-ZJ-S8c"/>
                             <constraint firstItem="tfy-tc-a3R" firstAttribute="leading" secondItem="pAh-Pf-cBF" secondAttribute="leadingMargin" constant="20" id="Kev-XP-Hc5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="heZ-zx-Pp0" secondAttribute="trailing" constant="20" id="Orx-Q7-Da8"/>
-                            <constraint firstItem="tfy-tc-a3R" firstAttribute="top" secondItem="rII-ZD-TnA" secondAttribute="bottom" constant="30" id="SHd-VH-B8F"/>
-                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="30" id="kMK-19-doq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rII-ZD-TnA" secondAttribute="trailing" constant="20" id="khs-J5-AbT"/>
-                            <constraint firstItem="rII-ZD-TnA" firstAttribute="top" secondItem="heZ-zx-Pp0" secondAttribute="bottom" constant="30" id="p4Z-OO-Dl1"/>
+                            <constraint firstItem="heZ-zx-Pp0" firstAttribute="top" secondItem="K8n-aE-uBg" secondAttribute="bottom" constant="20" id="hAP-iV-CtJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Idea Editor" id="OLj-Oe-Gvq">
+                    <navigationItem key="navigationItem" id="OLj-Oe-Gvq">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Ui9-cO-q8A">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
@@ -141,9 +145,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.29541240749999997" green="0.62514911120000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.46652918781725883" green="0.3265002388847813" blue="0.19420465451961438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
