@@ -53,8 +53,6 @@ extension EditorViewController: UICollectionViewDataSource{
     }
 }
 
-//fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 40.0, bottom: 10.0, right: 30.0)
-
 extension EditorViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -67,17 +65,31 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout{
             let space:CGFloat = diff * 10
             standardTagWidth = 30 + space
         }
-        //let itemsPerRow:CGFloat = 4
-        //intended to Calculates all the padding that the row will contain
-        //let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
-        //let availableWidth = view.frame.width - paddingSpace
-        //let widthPerItem = availableWidth / itemsPerRow
         return CGSize(width: standardTagWidth, height: standardTagHeight)
     }
     
-    //TODO: because you can't set a maximum interItemSpacing with the control given, eventually we may want to subclass the flowLayout object and implement such a control, but for now I think reducing the minimum is ok.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3.0
     }
     
+}
+
+extension EditorViewController: UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if(textView.text == "Notes..."){
+            textView.text = ""
+            textView.textColor = UIColor.darkGray
+        }
+        textView.becomeFirstResponder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if(textView.text.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            textView.text = "Notes..."
+            
+            //TODO:Light gray color for placeholder text in the UITextView, still a little off from the text field color, but not too noticeable
+            textView.textColor = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
+        }
+
+    }
 }
