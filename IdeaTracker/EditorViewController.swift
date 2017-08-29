@@ -6,6 +6,9 @@ class EditorViewController: UIViewController {
     
     fileprivate let reuseIdentifier = "TagCell"
     
+    let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
+    let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
+    
     let defaultTags = ["Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
     
     override func viewDidLoad() {
@@ -78,7 +81,7 @@ extension EditorViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         if(textView.text == "Notes..."){
             textView.text = ""
-            textView.textColor = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
+            textView.textColor = COLOR_DARK_GRAY_TEXT
 
         }
         textView.becomeFirstResponder()
@@ -88,8 +91,8 @@ extension EditorViewController: UITextViewDelegate{
         if(textView.text.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
             textView.text = "Notes..."
             
-            //TODO:Light gray color for placeholder text in the UITextView, still a little off from the text field color, but not too noticeable
-            textView.textColor = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
+            //TODO:Light gray color for placeholder text in the UITextView is off from Title TextField
+            textView.textColor = COLOR_LIGHT_GRAY_TEXT
         }
 
     }
