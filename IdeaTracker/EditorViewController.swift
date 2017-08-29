@@ -78,7 +78,8 @@ extension EditorViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         if(textView.text == "Notes..."){
             textView.text = ""
-            textView.textColor = UIColor.darkGray
+            textView.textColor = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
+
         }
         textView.becomeFirstResponder()
     }
