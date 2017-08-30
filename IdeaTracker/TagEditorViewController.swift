@@ -2,6 +2,7 @@ import UIKit
 
 class TagEditorViewController: UIViewController {
 
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBAction func doneButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

@@ -183,9 +183,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ln-qS-4w6" userLabel="Status Bar Space">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="20"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.32549019610000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="R7V-hL-9cx"/>
+                                </constraints>
+                            </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SCh-x2-3Jg">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.46666666670000001" green="0.32549019610000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
@@ -201,11 +211,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Ln-qS-4w6" secondAttribute="trailing" constant="-20" id="TZt-RA-a5G"/>
+                            <constraint firstItem="4Ln-qS-4w6" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leadingMargin" constant="-20" id="U0l-f3-bfF"/>
                             <constraint firstAttribute="trailing" secondItem="SCh-x2-3Jg" secondAttribute="trailing" id="f7B-tF-bHP"/>
+                            <constraint firstItem="4Ln-qS-4w6" firstAttribute="top" secondItem="h9F-Lj-lvl" secondAttribute="bottom" constant="-20" id="gbG-Kz-WTi"/>
                             <constraint firstItem="SCh-x2-3Jg" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leading" id="l22-Xg-GtZ"/>
                             <constraint firstItem="SCh-x2-3Jg" firstAttribute="top" secondItem="h9F-Lj-lvl" secondAttribute="bottom" id="zje-l1-LwQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="SCh-x2-3Jg" id="cZw-NX-gyd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohk-9x-sHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
