@@ -3,8 +3,10 @@ import UIKit
 class TagButton: UIButton {
     
     //potential names: scripter, scriptor, scriptr, skript
-    //logo - horizontal pencil in white on dark brown, or light brown on dark brown
     
+    
+    // need to set the delegate for the button
+    weak var tagButtonDelegate: TagButtonDelegate?
     
     var selectedColor = UIColor(red: 193/255, green: 169/255, blue: 124/255, alpha: 255/255)
     
@@ -41,7 +43,16 @@ class TagButton: UIButton {
     func highlightButton(){
         let isSelected = (backgroundColor == selectedColor)
         backgroundColor = isSelected ? defaultColor : selectedColor
+        
+        if(self.titleLabel?.text == "+"){
+            //Delegate callback method
+            tagButtonDelegate?.didSelectAddTag(tagButton: self)
+        }
     }
+}
+
+protocol TagButtonDelegate: class{
+    func didSelectAddTag(tagButton: TagButton)
 }
 
 extension UIView{

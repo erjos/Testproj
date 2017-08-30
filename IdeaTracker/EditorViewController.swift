@@ -13,7 +13,6 @@ class EditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupStyle()
         self.collectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -21,12 +20,6 @@ class EditorViewController: UIViewController {
         let logo = UIImage(named: "Pencil")
         imageView.image = logo
         self.navigationItem.titleView = imageView
-    }
-    
-    private func setupStyle(){
-        
-        //TODO: fix round corners so it can take any number of views from 1 ...
-        //notesTextView.roundCorners()
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +44,7 @@ extension EditorViewController: UICollectionViewDataSource{
         
         var title: String
         if (indexPath.row == defaultTags.count){
+            cell.button.tagButtonDelegate = self
             title = "+"
         } else {
             title = defaultTags[indexPath.row]
@@ -105,5 +99,11 @@ extension EditorViewController: UITextViewDelegate{
             textView.textColor = COLOR_LIGHT_GRAY_TEXT
         }
 
+    }
+}
+
+extension EditorViewController: TagButtonDelegate{
+    func didSelectAddTag(tagButton: TagButton) {
+        performSegue(withIdentifier: "tagEditorSegue", sender: self)
     }
 }

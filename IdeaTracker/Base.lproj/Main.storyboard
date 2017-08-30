@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IdeaTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                             <constraint firstItem="AeW-NH-hTv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pzE-35-1Mb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8y8-w9-VHk">
+                    <navigationItem key="navigationItem" title=" " id="8y8-w9-VHk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wb8-gE-x1b">
                             <connections>
                                 <segue destination="Pdd-vE-YOi" kind="show" id="Yn2-Lj-SNr"/>
@@ -123,6 +123,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="pRL-LM-vFF" kind="show" identifier="tagEditorSegue" id="HmK-Kj-ap8"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -170,6 +173,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzv-MZ-2IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1728.8" y="136.28185907046478"/>
+        </scene>
+        <!--Tag Editor View Controller-->
+        <scene sceneID="jVK-fk-jcl">
+            <objects>
+                <viewController id="pRL-LM-vFF" customClass="TagEditorViewController" customModule="IdeaTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h9F-Lj-lvl"/>
+                        <viewControllerLayoutGuide type="bottom" id="QlT-Ma-Y7A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Xp-Pr-sUY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohk-9x-sHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1729" y="869"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VfP-oV-dTa">
