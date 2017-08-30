@@ -40,7 +40,7 @@ extension EditorViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return defaultTags.count
+        return defaultTags.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,7 +48,13 @@ extension EditorViewController: UICollectionViewDataSource{
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! TagCollectionViewCell
-        let title = defaultTags[indexPath.row]
+        
+        var title: String
+        if (indexPath.row == defaultTags.count){
+            title = "+"
+        } else {
+            title = defaultTags[indexPath.row]
+        }
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
         // Configure the cell
@@ -62,11 +68,14 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout{
         var standardTagWidth: CGFloat = 30
         let standardTagHeight: CGFloat = 30
         
-        let tagLength = CGFloat(defaultTags[indexPath.row].characters.count)
-        if(tagLength > 3){
-            let diff:CGFloat = tagLength - 3
-            let space:CGFloat = diff * 10
-            standardTagWidth = 30 + space
+        //TODO:Encapsulate in method
+        if(indexPath.row != (defaultTags.count)){
+            let tagLength = CGFloat(defaultTags[indexPath.row].characters.count)
+            if(tagLength > 3){
+                let diff:CGFloat = tagLength - 3
+                let space:CGFloat = diff * 10
+                standardTagWidth = 30 + space
+            }
         }
         return CGSize(width: standardTagWidth, height: standardTagHeight)
     }
@@ -77,6 +86,7 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout{
     
 }
 
+//TODO: subclass textView to contain these characteristics, make the placeholder behave the same as the textField(doesn't dissappear until you start typing
 extension EditorViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         if(textView.text == "Notes..."){
