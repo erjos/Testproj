@@ -98,12 +98,12 @@ extension EditorViewController: UITextViewDelegate{
             //TODO:Light gray color for placeholder text in the UITextView is off from Title TextField
             textView.textColor = COLOR_LIGHT_GRAY_TEXT
         }
-
     }
 }
 
 extension EditorViewController: TagButtonDelegate{
     func didSelectAddTag(tagButton: TagButton) {
-        performSegue(withIdentifier: "tagEditorSegue", sender: self)
+        let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor")
+        self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
     }
 }
