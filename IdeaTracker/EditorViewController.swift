@@ -104,6 +104,7 @@ extension EditorViewController: UITextViewDelegate{
 extension EditorViewController: TagButtonDelegate{
     func didSelectAddTag(tagButton: TagButton) {
         let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor")
+        
         self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
     }
 }
