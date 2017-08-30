@@ -37,16 +37,16 @@ class TagButton: UIButton {
         self.showsTouchWhenHighlighted = true
         
         //want this action triggered for all buttons of this type
-        self.addTarget(self, action: #selector(self.highlightButton), for: .touchDown)
+        self.addTarget(self, action: #selector(self.handleTap), for: .touchDown)
     }
     
-    func highlightButton(){
-        let isSelected = (backgroundColor == selectedColor)
-        backgroundColor = isSelected ? defaultColor : selectedColor
-        
+    func handleTap(){
         if(self.titleLabel?.text == "+"){
             //Delegate callback method
             tagButtonDelegate?.didSelectAddTag(tagButton: self)
+        } else {
+            let isSelected = (backgroundColor == selectedColor)
+            backgroundColor = isSelected ? defaultColor : selectedColor
         }
     }
 }
