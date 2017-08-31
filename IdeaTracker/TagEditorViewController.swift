@@ -1,7 +1,14 @@
 import UIKit
 
 class TagEditorViewController: UIViewController {
-
+    var tagName: String?
+    var buttonTitle: String?
+    var isDeleteHidden: Bool = false
+    
+    @IBOutlet weak var tagNameField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
        @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func dismissAction(_ sender: Any) {
@@ -9,7 +16,16 @@ class TagEditorViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if let tag = tagName{
+            tagNameField.text = tag
+        }
+        
+        if let button = buttonTitle{
+            addButton.setTitle(button, for: .normal)
+        }
+        
+        deleteButton.isHidden = isDeleteHidden
     }
 
     override func didReceiveMemoryWarning() {

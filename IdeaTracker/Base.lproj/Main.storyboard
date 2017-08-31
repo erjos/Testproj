@@ -260,7 +260,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="R0D-xf-3ex" id="sGs-BQ-egp"/>
+                        <outlet property="deleteButton" destination="ZFH-lo-Ec2" id="3eP-89-rOk"/>
                         <outlet property="navigationBar" destination="SCh-x2-3Jg" id="cZw-NX-gyd"/>
+                        <outlet property="tagNameField" destination="RW0-zK-wtc" id="oZI-y2-GDQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohk-9x-sHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
