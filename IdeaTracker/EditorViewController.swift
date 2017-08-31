@@ -53,15 +53,17 @@ extension EditorViewController: UICollectionViewDataSource{
             cell.button.tagButtonDelegate = self
             title = "+"
         } else {
+            //Gesture Config
+            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+            
+            //play with duration to get the right time
+            pressGesture.minimumPressDuration = 0.7
+            pressGesture.delaysTouchesBegan = true
+            cell.addGestureRecognizer(pressGesture)
             title = defaultTags[indexPath.row]
         }
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
-        
-        //Gesture Config
-        let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-        pressGesture.delaysTouchesBegan = true
-        cell.addGestureRecognizer(pressGesture)
         
         // Configure the cell
         return cell
