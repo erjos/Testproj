@@ -1,13 +1,15 @@
 import UIKit
 
 class TagEditorViewController: UIViewController {
+    
     var tagName: String?
     var buttonTitle: String?
-    var isDeleteHidden: Bool = false
+    var isDeleteHidden: Bool = true
     
     @IBOutlet weak var tagNameField: UITextField!
-    @IBOutlet weak var addButton: UIButton!
+    
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
        @IBOutlet weak var navigationBar: UINavigationBar!
     
@@ -22,7 +24,7 @@ class TagEditorViewController: UIViewController {
         }
         
         if let button = buttonTitle{
-            addButton.setTitle(button, for: .normal)
+            saveButton.setTitle(button, for: .normal)
         }
         
         deleteButton.isHidden = isDeleteHidden

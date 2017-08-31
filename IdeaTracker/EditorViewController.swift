@@ -31,11 +31,9 @@ class EditorViewController: UIViewController {
         
         let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor") as? TagEditorViewController
         
-        //change entry text
         tagEditorVC?.tagName = cell.button.titleLabel?.text
-        //change addButtonTitle
-        tagEditorVC?.buttonTitle = "save"
-        tagEditorVC?.isDeleteHidden = true
+//        tagEditorVC?.buttonTitle = "Save"
+        tagEditorVC?.isDeleteHidden = false
         self.navigationController?.present(tagEditorVC!, animated: true, completion:nil)
     }
 }
