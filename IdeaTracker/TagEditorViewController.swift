@@ -2,11 +2,11 @@ import UIKit
 
 class TagEditorViewController: UIViewController {
 
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBAction func doneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+       @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBAction func dismissAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

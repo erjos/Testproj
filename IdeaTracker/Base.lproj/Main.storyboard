@@ -195,28 +195,68 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.46666666670000001" green="0.32549019610000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Tag Editor" id="Vo2-bW-CF2">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="CUV-xJ-PFA">
+                                        <barButtonItem key="rightBarButtonItem" image="Dismiss" id="CUV-xJ-PFA">
                                             <connections>
-                                                <action selector="doneButton:" destination="pRL-LM-vFF" id="Uhw-He-b4M"/>
+                                                <action selector="dismissAction:" destination="pRL-LM-vFF" id="fgL-tV-bUP"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tag name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RW0-zK-wtc">
+                                <rect key="frame" x="29" y="84" width="263" height="17"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-xf-3ex">
+                                <rect key="frame" x="312" y="84" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="gCQ-jV-yna"/>
+                                </constraints>
+                                <state key="normal" title="Add"/>
+                            </button>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wg-Z9-VbJ" userLabel="Stroke">
+                                <rect key="frame" x="0.0" y="115" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.33018718270000003" green="0.23108134890000001" blue="0.137448823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="qCF-8B-wGM"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFH-lo-Ec2">
+                                <rect key="frame" x="16" y="136" width="343" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title=" Delete Tag">
+                                    <color key="titleColor" red="0.96862745098039216" green="0.27600708943909985" blue="0.33510076102766656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8wg-Z9-VbJ" firstAttribute="top" secondItem="R0D-xf-3ex" secondAttribute="bottom" constant="1" id="E5D-3o-iZY"/>
+                            <constraint firstItem="R0D-xf-3ex" firstAttribute="top" secondItem="SCh-x2-3Jg" secondAttribute="bottom" constant="20" id="KBd-QY-QU2"/>
+                            <constraint firstItem="R0D-xf-3ex" firstAttribute="trailing" secondItem="5Xp-Pr-sUY" secondAttribute="trailingMargin" constant="12.5" id="RJJ-sQ-Q4J"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Ln-qS-4w6" secondAttribute="trailing" constant="-20" id="TZt-RA-a5G"/>
                             <constraint firstItem="4Ln-qS-4w6" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leadingMargin" constant="-20" id="U0l-f3-bfF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZFH-lo-Ec2" secondAttribute="trailing" id="ZgU-Ih-Iwx"/>
+                            <constraint firstItem="R0D-xf-3ex" firstAttribute="leading" secondItem="RW0-zK-wtc" secondAttribute="trailing" constant="20" id="apj-0N-VQ5"/>
+                            <constraint firstAttribute="trailing" secondItem="8wg-Z9-VbJ" secondAttribute="trailing" id="b7s-qG-zfY"/>
+                            <constraint firstItem="RW0-zK-wtc" firstAttribute="top" secondItem="SCh-x2-3Jg" secondAttribute="bottom" constant="20" id="bUQ-dz-KDr"/>
+                            <constraint firstItem="RW0-zK-wtc" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leadingMargin" constant="12.5" id="dOZ-8N-iJK"/>
+                            <constraint firstItem="ZFH-lo-Ec2" firstAttribute="top" secondItem="8wg-Z9-VbJ" secondAttribute="bottom" constant="20" id="dcX-Qz-k1O"/>
                             <constraint firstAttribute="trailing" secondItem="SCh-x2-3Jg" secondAttribute="trailing" id="f7B-tF-bHP"/>
                             <constraint firstItem="4Ln-qS-4w6" firstAttribute="top" secondItem="h9F-Lj-lvl" secondAttribute="bottom" constant="-20" id="gbG-Kz-WTi"/>
+                            <constraint firstItem="8wg-Z9-VbJ" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leading" id="ij2-nD-hll"/>
                             <constraint firstItem="SCh-x2-3Jg" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leading" id="l22-Xg-GtZ"/>
                             <constraint firstItem="SCh-x2-3Jg" firstAttribute="top" secondItem="h9F-Lj-lvl" secondAttribute="bottom" id="zje-l1-LwQ"/>
+                            <constraint firstItem="ZFH-lo-Ec2" firstAttribute="leading" secondItem="5Xp-Pr-sUY" secondAttribute="leadingMargin" id="zzd-k0-FM3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -225,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohk-9x-sHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="823"/>
+            <point key="canvasLocation" x="1728.8" y="821.73913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VfP-oV-dTa">
@@ -252,4 +292,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Dismiss" width="25" height="25"/>
+    </resources>
 </document>
