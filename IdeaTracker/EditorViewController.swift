@@ -25,6 +25,11 @@ class EditorViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func handleLongPress(_ sender: UIGestureRecognizer){
+        let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor")
+        self.navigationController?.present(tagEditorVC, animated: true, completion:nil)
+    }
 }
 
 extension EditorViewController: UICollectionViewDataSource{
@@ -39,6 +44,7 @@ extension EditorViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! TagCollectionViewCell
         
@@ -51,6 +57,12 @@ extension EditorViewController: UICollectionViewDataSource{
         }
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
+        
+        //Gesture Config
+        let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        pressGesture.delaysTouchesBegan = true
+        cell.addGestureRecognizer(pressGesture)
+        
         // Configure the cell
         return cell
     }

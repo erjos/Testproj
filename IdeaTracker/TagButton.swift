@@ -35,8 +35,6 @@ class TagButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.showsTouchWhenHighlighted = true
-        
-        //want this action triggered for all buttons of this type
         self.addTarget(self, action: #selector(self.handleTap), for: .touchDown)
     }
     
