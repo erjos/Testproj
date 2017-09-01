@@ -16,6 +16,10 @@
 		866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AB1F4F88E200659B0C /* EditorViewController.swift */; };
 		866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AD1F4F9BEB00659B0C /* TagButton.swift */; };
 		86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B21F571A6400278A7C /* TagEditorViewController.swift */; };
+		86B104BB1F59C53F00278A7C /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B71F59C53F00278A7C /* Tag+CoreDataClass.swift */; };
+		86B104BC1F59C53F00278A7C /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B81F59C53F00278A7C /* Tag+CoreDataProperties.swift */; };
+		86B104BD1F59C53F00278A7C /* Entry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B91F59C53F00278A7C /* Entry+CoreDataClass.swift */; };
+		86B104BE1F59C53F00278A7C /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104BA1F59C53F00278A7C /* Entry+CoreDataProperties.swift */; };
 		86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */; };
 		86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -32,6 +36,10 @@
 		866DA6AB1F4F88E200659B0C /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		866DA6AD1F4F9BEB00659B0C /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		86B104B21F571A6400278A7C /* TagEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditorViewController.swift; sourceTree = "<group>"; };
+		86B104B71F59C53F00278A7C /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		86B104B81F59C53F00278A7C /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		86B104B91F59C53F00278A7C /* Entry+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataClass.swift"; sourceTree = "<group>"; };
+		86B104BA1F59C53F00278A7C /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +74,7 @@
 		866DA6931F4F83AC00659B0C /* IdeaTracker */ = {
 			isa = PBXGroup;
 			children = (
+				86B104BF1F59C5F100278A7C /* CoreDataObjects */,
 				86B7FE961F4F9DBD000F5DA8 /* CustomControls */,
 				866DA6941F4F83AC00659B0C /* AppDelegate.swift */,
 				866DA6961F4F83AC00659B0C /* ViewController.swift */,
@@ -78,6 +87,18 @@
 				86B104B21F571A6400278A7C /* TagEditorViewController.swift */,
 			);
 			path = IdeaTracker;
+			sourceTree = "<group>";
+		};
+		86B104BF1F59C5F100278A7C /* CoreDataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				86B104B71F59C53F00278A7C /* Tag+CoreDataClass.swift */,
+				86B104B81F59C53F00278A7C /* Tag+CoreDataProperties.swift */,
+				86B104B91F59C53F00278A7C /* Entry+CoreDataClass.swift */,
+				86B104BA1F59C53F00278A7C /* Entry+CoreDataProperties.swift */,
+			);
+			name = CoreDataObjects;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		86B7FE961F4F9DBD000F5DA8 /* CustomControls */ = {
@@ -166,11 +187,15 @@
 			files = (
 				866DA6971F4F83AC00659B0C /* ViewController.swift in Sources */,
 				86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */,
+				86B104BB1F59C53F00278A7C /* Tag+CoreDataClass.swift in Sources */,
 				866DA69D1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld in Sources */,
+				86B104BE1F59C53F00278A7C /* Entry+CoreDataProperties.swift in Sources */,
 				866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */,
 				86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */,
 				866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */,
 				866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */,
+				86B104BD1F59C53F00278A7C /* Entry+CoreDataClass.swift in Sources */,
+				86B104BC1F59C53F00278A7C /* Tag+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
