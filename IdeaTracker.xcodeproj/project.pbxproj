@@ -15,6 +15,10 @@
 		866DA6A21F4F83AC00659B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866DA6A01F4F83AC00659B0C /* LaunchScreen.storyboard */; };
 		866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AB1F4F88E200659B0C /* EditorViewController.swift */; };
 		866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AD1F4F9BEB00659B0C /* TagButton.swift */; };
+		868261411F59C96D00221074 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8682613D1F59C96D00221074 /* Tag.swift */; };
+		868261421F59C96D00221074 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8682613E1F59C96D00221074 /* Tag+CoreDataProperties.swift */; };
+		868261431F59C96D00221074 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8682613F1F59C96D00221074 /* Entry.swift */; };
+		868261441F59C96D00221074 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868261401F59C96D00221074 /* Entry+CoreDataProperties.swift */; };
 		86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B21F571A6400278A7C /* TagEditorViewController.swift */; };
 		86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */; };
 		86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */; };
@@ -31,6 +35,10 @@
 		866DA6A31F4F83AC00659B0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866DA6AB1F4F88E200659B0C /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		866DA6AD1F4F9BEB00659B0C /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
+		8682613D1F59C96D00221074 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		8682613E1F59C96D00221074 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8682613F1F59C96D00221074 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		868261401F59C96D00221074 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		86B104B21F571A6400278A7C /* TagEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditorViewController.swift; sourceTree = "<group>"; };
 		86B7FE9B1F5121FF000F5DA8 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -50,6 +58,10 @@
 		866DA6881F4F83AC00659B0C = {
 			isa = PBXGroup;
 			children = (
+				8682613D1F59C96D00221074 /* Tag.swift */,
+				8682613E1F59C96D00221074 /* Tag+CoreDataProperties.swift */,
+				8682613F1F59C96D00221074 /* Entry.swift */,
+				868261401F59C96D00221074 /* Entry+CoreDataProperties.swift */,
 				866DA6931F4F83AC00659B0C /* IdeaTracker */,
 				866DA6921F4F83AC00659B0C /* Products */,
 			);
@@ -166,11 +178,15 @@
 			files = (
 				866DA6971F4F83AC00659B0C /* ViewController.swift in Sources */,
 				86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */,
+				868261411F59C96D00221074 /* Tag.swift in Sources */,
 				866DA69D1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld in Sources */,
+				868261441F59C96D00221074 /* Entry+CoreDataProperties.swift in Sources */,
 				866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */,
 				86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */,
 				866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */,
 				866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */,
+				868261431F59C96D00221074 /* Entry.swift in Sources */,
+				868261421F59C96D00221074 /* Tag+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
