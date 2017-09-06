@@ -159,11 +159,15 @@
                     <navigationItem key="navigationItem" id="OLj-Oe-Gvq">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Ui9-cO-q8A">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Pdd-vE-YOi" id="0Tm-2W-7mr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="tfy-tc-a3R" id="O3s-Lr-tai"/>
                         <outlet property="notesTextView" destination="rII-ZD-TnA" id="c8D-HM-ccz"/>
+                        <outlet property="titleField" destination="heZ-zx-Pp0" id="4gd-Yn-Oq8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzv-MZ-2IP" userLabel="First Responder" sceneMemberID="firstResponder"/>

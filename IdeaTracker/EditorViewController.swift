@@ -1,15 +1,45 @@
 import UIKit
+import CoreData
 
 class EditorViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var titleField: UITextField!
     
     fileprivate let reuseIdentifier = "TagCell"
     
     let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
     let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        //TODO: separate this out into a separate DAO layer...
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Entry", in: managedContext)!
+        let entry = Entry(entity: entity, insertInto: managedContext)
+        
+        //alternatively could use ->entry.setValue(value, forKey: key)
+        
+        //Consider edge cases where we might not want to save if the user hasn't entered a title??
+        entry.name = self.titleField.text
+        entry.notes = self.notesTextView.text
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    
     let defaultTags = ["Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
