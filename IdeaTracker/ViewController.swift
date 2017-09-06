@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -24,6 +25,13 @@ class ViewController: UIViewController {
         let logo = UIImage(named: "Pencil")
         imageView.image = logo
         self.navigationItem.titleView = imageView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let realm = try! Realm()
+        let notes = realm.objects(Entry.self)
+        let count = notes.count
+        let first = notes.first?.name
     }
 
     override func didReceiveMemoryWarning() {

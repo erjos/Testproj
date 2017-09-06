@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class EditorViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -11,6 +12,15 @@ class EditorViewController: UIViewController {
     let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        let entry = Entry()
+        
+        entry.name = titleField.text!
+        entry.notes = notesTextView.text
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(entry)
+        }
     }
     
     

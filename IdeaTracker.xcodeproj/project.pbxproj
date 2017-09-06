@@ -93,7 +93,7 @@
 		866DA6931F4F83AC00659B0C /* IdeaTracker */ = {
 			isa = PBXGroup;
 			children = (
-				868261451F59CA0B00221074 /* CoreData */,
+				868261451F59CA0B00221074 /* Models */,
 				86B7FE961F4F9DBD000F5DA8 /* CustomControls */,
 				866DA6941F4F83AC00659B0C /* AppDelegate.swift */,
 				866DA6961F4F83AC00659B0C /* ViewController.swift */,
@@ -107,13 +107,13 @@
 			path = IdeaTracker;
 			sourceTree = "<group>";
 		};
-		868261451F59CA0B00221074 /* CoreData */ = {
+		868261451F59CA0B00221074 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8682613D1F59C96D00221074 /* Tag.swift */,
 				8682613F1F59C96D00221074 /* Entry.swift */,
 			);
-			name = CoreData;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		86B7FE961F4F9DBD000F5DA8 /* CustomControls */ = {
