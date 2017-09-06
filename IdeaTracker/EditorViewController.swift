@@ -1,5 +1,4 @@
 import UIKit
-import CoreData
 
 class EditorViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -12,28 +11,6 @@ class EditorViewController: UIViewController {
     let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        
-        //TODO: separate this out into a separate DAO layer...
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Entry", in: managedContext)!
-        let entry = Entry(entity: entity, insertInto: managedContext)
-        
-        //alternatively could use ->entry.setValue(value, forKey: key)
-        
-        //Consider edge cases where we might not want to save if the user hasn't entered a title??
-        entry.name = self.titleField.text
-        entry.notes = self.notesTextView.text
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError{
-            print("Could not save. \(error), \(error.userInfo)")
-        }
     }
     
     

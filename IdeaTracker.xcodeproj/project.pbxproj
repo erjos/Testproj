@@ -14,7 +14,6 @@
 		866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6941F4F83AC00659B0C /* AppDelegate.swift */; };
 		866DA6971F4F83AC00659B0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6961F4F83AC00659B0C /* ViewController.swift */; };
 		866DA69A1F4F83AC00659B0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866DA6981F4F83AC00659B0C /* Main.storyboard */; };
-		866DA69D1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 866DA69B1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld */; };
 		866DA69F1F4F83AC00659B0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866DA69E1F4F83AC00659B0C /* Assets.xcassets */; };
 		866DA6A21F4F83AC00659B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866DA6A01F4F83AC00659B0C /* LaunchScreen.storyboard */; };
 		866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AB1F4F88E200659B0C /* EditorViewController.swift */; };
@@ -48,7 +47,6 @@
 		866DA6941F4F83AC00659B0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		866DA6961F4F83AC00659B0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		866DA6991F4F83AC00659B0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		866DA69C1F4F83AC00659B0C /* IdeaTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IdeaTracker.xcdatamodel; sourceTree = "<group>"; };
 		866DA69E1F4F83AC00659B0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		866DA6A11F4F83AC00659B0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		866DA6A31F4F83AC00659B0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				866DA69E1F4F83AC00659B0C /* Assets.xcassets */,
 				866DA6A01F4F83AC00659B0C /* LaunchScreen.storyboard */,
 				866DA6A31F4F83AC00659B0C /* Info.plist */,
-				866DA69B1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld */,
 				866DA6AB1F4F88E200659B0C /* EditorViewController.swift */,
 				86B104B21F571A6400278A7C /* TagEditorViewController.swift */,
 			);
@@ -224,7 +221,6 @@
 				866DA6971F4F83AC00659B0C /* ViewController.swift in Sources */,
 				86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */,
 				868261411F59C96D00221074 /* Tag.swift in Sources */,
-				866DA69D1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld in Sources */,
 				866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */,
 				86B7FE9D1F5121FF000F5DA8 /* TagCollectionViewCell.swift in Sources */,
 				866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */,
@@ -402,19 +398,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		866DA69B1F4F83AC00659B0C /* IdeaTracker.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				866DA69C1F4F83AC00659B0C /* IdeaTracker.xcdatamodel */,
-			);
-			currentVersion = 866DA69C1F4F83AC00659B0C /* IdeaTracker.xcdatamodel */;
-			path = IdeaTracker.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 866DA6891F4F83AC00659B0C /* Project object */;
 }
