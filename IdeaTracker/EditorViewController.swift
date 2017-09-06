@@ -6,6 +6,8 @@ class EditorViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var titleField: UITextField!
     
+    var selectedEntry: Entry?
+    
     fileprivate let reuseIdentifier = "TagCell"
     
     let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
@@ -39,6 +41,11 @@ class EditorViewController: UIViewController {
         let logo = UIImage(named: "Pencil")
         imageView.image = logo
         self.navigationItem.titleView = imageView
+        
+        if let currentEntry = selectedEntry {
+            self.titleField.text = currentEntry.name
+            self.notesTextView.text = currentEntry.notes
+        }
     }
     
     override func didReceiveMemoryWarning() {

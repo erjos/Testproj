@@ -7,11 +7,9 @@ class TagEditorViewController: UIViewController {
     var isDeleteHidden: Bool = true
     
     @IBOutlet weak var tagNameField: UITextField!
-    
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    
-       @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func dismissAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)

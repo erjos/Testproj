@@ -4,6 +4,9 @@ import RealmSwift
 class HomeViewController: UIViewController {
     
     var entries: Results<Entry>?
+    
+    //should always be nil unless a user clicks an entry from the table
+    var selectedEntry: Entry?
 
     @IBOutlet weak var entryTableView: UITableView!
     
@@ -21,6 +24,9 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        //Might not need this, but should test what happens w/o it
+        self.selectedEntry = nil
+        
         //TODO: add error handling for the first initialization of this realm instance
         let realm = try! Realm()
         entries = realm.objects(Entry.self)
@@ -28,6 +34,13 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toEditorVC"){
+            let vc = segue.destination as! EditorViewController
+            vc.selectedEntry = self.selectedEntry
+        }
     }
 }
 
@@ -49,9 +62,10 @@ extension HomeViewController: UITableViewDataSource{
     }
 }
 
+
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //code that takes you to the editorVC and populates with the correct data for the realm object.
+        selectedEntry = entries?[indexPath.row]
         self.performSegue(withIdentifier: "toEditorVC", sender: self)
     }
 }
