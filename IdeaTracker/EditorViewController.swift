@@ -18,6 +18,8 @@ class EditorViewController: UIViewController {
         entry.notes = notesTextView.text
         
         let realm = try! Realm()
+        
+        //TODO: add error handling for if the device runs out of disk space
         try! realm.write {
             realm.add(entry)
         }

@@ -17,10 +17,11 @@ class HomeViewController: UIViewController {
         
         
         entryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //TODO: add error handling for the first initialization of this realm instance
         let realm = try! Realm()
         entries = realm.objects(Entry.self)
         entryTableView.reloadData()
@@ -48,8 +49,11 @@ extension HomeViewController: UITableViewDataSource{
     }
 }
 
-extension HomeViewController: UITableViewDelegate{
-    
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //code that takes you to the editorVC and populates with the correct data for the realm object.
+        self.performSegue(withIdentifier: "toEditorVC", sender: self)
+    }
 }
 
 //APP TODOS

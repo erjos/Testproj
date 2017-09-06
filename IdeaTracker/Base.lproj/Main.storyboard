@@ -47,7 +47,7 @@
                     <navigationItem key="navigationItem" title=" " id="8y8-w9-VHk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wb8-gE-x1b">
                             <connections>
-                                <segue destination="Pdd-vE-YOi" kind="show" id="Yn2-Lj-SNr"/>
+                                <segue destination="Pdd-vE-YOi" kind="show" identifier="toEditorVC" id="Yn2-Lj-SNr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
