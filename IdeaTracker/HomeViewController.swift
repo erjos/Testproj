@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     //APP TODOS
     //- make dividers on table view for main page the same color as the stroke dividers on the editor page
@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     //- add shadows where applicable to make the UI pop more (i.e. around the tags that are selected to portray a pressed button to the user
     
     //- youtube style tab bar under the nav bar on the main page - white selector bar with dropshadow under it display which tab is selected - title on the left hand side of the nav bar provide a label
+    
+    var entries: Results<Entry>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +29,26 @@ class ViewController: UIViewController {
         self.navigationItem.titleView = imageView
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
-        let notes = realm.objects(Entry.self)
-        let count = notes.count
-        let first = notes.first?.name
+        entries = realm.objects(Entry.self)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension HomeViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+extension HomeViewController: UITableViewDelegate{
+    
 }
