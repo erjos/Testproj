@@ -77,8 +77,6 @@ extension HomeViewController: UITableViewDelegate {
 
 //- create function to create custom tags
 
-//- design and build schema for core data
-
 //- Tab bar on main page to display multiple views of data: table view of chronological order, collection view of tags/folders, etc.
 
 //- add shadows where applicable to make the UI pop more (i.e. around the tags that are selected to portray a pressed button to the user

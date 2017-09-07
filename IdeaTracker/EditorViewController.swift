@@ -14,17 +14,28 @@ class EditorViewController: UIViewController {
     let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        let entry = Entry()
-        
-        entry.name = titleField.text!
-        entry.notes = notesTextView.text
         
         let realm = try! Realm()
         
-        //TODO: add error handling for if the device runs out of disk space
-        try! realm.write {
-            realm.add(entry)
+        guard let entry = selectedEntry else {
+            let entry = Entry()
+            updateEntry(entry)
+            
+            //TODO: add error handling for if the device runs out of disk space
+            try! realm.write {
+                realm.add(entry)
+            }
+            return
         }
+        
+        try! realm.write {
+            updateEntry(entry)
+        }
+    }
+    
+    private func updateEntry(_ entry: Entry) {
+        entry.name = titleField.text!
+        entry.notes = notesTextView.text
     }
     
     
@@ -45,6 +56,7 @@ class EditorViewController: UIViewController {
         if let currentEntry = selectedEntry {
             self.titleField.text = currentEntry.name
             self.notesTextView.text = currentEntry.notes
+            self.notesTextView.textColor = COLOR_DARK_GRAY_TEXT
         }
     }
     
