@@ -13,13 +13,14 @@ class EditorViewController: UIViewController {
     let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
     let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
     
+    fileprivate let NOTES_PLACEHOLDER = "Notes..."
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
-        
         let realm = try! Realm()
-        
         guard let entry = selectedEntry else {
             let entry = Entry()
             updateEntry(entry)
+            
             
             //TODO: add error handling for if the device runs out of disk space
             try! realm.write {
@@ -38,10 +39,9 @@ class EditorViewController: UIViewController {
         entry.notes = notesTextView.text
     }
     
+    var defaultTags: Results<Tag>?
     
-    let defaultTags = ["Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
-    
-    
+    //let defaultTags = ["Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,14 @@ class EditorViewController: UIViewController {
             self.notesTextView.text = currentEntry.notes
             self.notesTextView.textColor = COLOR_DARK_GRAY_TEXT
         }
+        
+        //Retrieve existing tags from the realm
+        let realm = try! Realm()
+        defaultTags = realm.objects(Tag.self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,8 +77,13 @@ class EditorViewController: UIViewController {
         
         let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor") as? TagEditorViewController
         
-        tagEditorVC?.tagName = cell.button.titleLabel?.text
-//        tagEditorVC?.buttonTitle = "Save"
+        //tagEditorVC?.tagName = cell.button.titleLabel?.text
+        let tagName = cell.button.titleLabel?.text
+        
+        //TODO: need to make sure only one tag per name can be saved...
+        let tag = defaultTags?.filter("name == %@", tagName!).first
+        
+        tagEditorVC?.selectedTag = tag
         tagEditorVC?.isDeleteHidden = false
         self.navigationController?.present(tagEditorVC!, animated: true, completion:nil)
     }
@@ -82,7 +95,7 @@ extension EditorViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return defaultTags.count + 1
+        return defaultTags!.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -93,7 +106,7 @@ extension EditorViewController: UICollectionViewDataSource{
                                                       for: indexPath) as! TagCollectionViewCell
         
         var title: String
-        if (indexPath.row == defaultTags.count){
+        if (indexPath.row == defaultTags?.count){
             cell.button.tagButtonDelegate = self
             title = "+"
         } else {
@@ -104,7 +117,7 @@ extension EditorViewController: UICollectionViewDataSource{
             pressGesture.minimumPressDuration = 0.7
             pressGesture.delaysTouchesBegan = true
             cell.addGestureRecognizer(pressGesture)
-            title = defaultTags[indexPath.row]
+            title = (defaultTags?[indexPath.row].name)!
         }
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
@@ -121,8 +134,8 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout{
         let standardTagHeight: CGFloat = 30
         
         //TODO:Encapsulate in method
-        if(indexPath.row != (defaultTags.count)){
-            let tagLength = CGFloat(defaultTags[indexPath.row].characters.count)
+        if(indexPath.row != (defaultTags?.count)){
+            let tagLength = CGFloat((defaultTags?[indexPath.row].name.characters.count)!)
             if(tagLength > 3){
                 let diff:CGFloat = tagLength - 3
                 let space:CGFloat = diff * 10
@@ -141,7 +154,7 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout{
 //TODO: subclass textView to contain these characteristics, make the placeholder behave the same as the textField(doesn't dissappear until you start typing
 extension EditorViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if(textView.text == "Notes..."){
+        if(textView.text == NOTES_PLACEHOLDER){
             textView.text = ""
             textView.textColor = COLOR_DARK_GRAY_TEXT
 
@@ -151,7 +164,7 @@ extension EditorViewController: UITextViewDelegate{
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if(textView.text.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
-            textView.text = "Notes..."
+            textView.text = NOTES_PLACEHOLDER
             
             //TODO:Light gray color for placeholder text in the UITextView is off from Title TextField
             textView.textColor = COLOR_LIGHT_GRAY_TEXT

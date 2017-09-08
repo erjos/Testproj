@@ -1,10 +1,13 @@
 import UIKit
+import RealmSwift
 
 class TagEditorViewController: UIViewController {
     
     var tagName: String?
     var buttonTitle: String?
     var isDeleteHidden: Bool = true
+    
+    var selectedTag: Tag?
     
     @IBOutlet weak var tagNameField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
@@ -14,11 +17,30 @@ class TagEditorViewController: UIViewController {
     @IBAction func dismissAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        
+        if let tag = tagName {
+            //update the tag name in realm
+        }
+        
+        if let tagName = tagNameField.text{
+            //save the new tag to realm
+            let realm = try! Realm()
+            let tag = Tag()
+            tag.name = tagName
+            
+            try! realm.write {
+                realm.add(tag)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let tag = tagName{
-            tagNameField.text = tag
+        if let tag = selectedTag{
+            tagNameField.text = tag.name
         }
         
         if let button = buttonTitle{

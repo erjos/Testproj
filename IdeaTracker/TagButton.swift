@@ -45,6 +45,7 @@ class TagButton: UIButton {
         } else {
             let isSelected = (backgroundColor == selectedColor)
             backgroundColor = isSelected ? defaultColor : selectedColor
+            isTagActive = !isSelected
         }
     }
 }

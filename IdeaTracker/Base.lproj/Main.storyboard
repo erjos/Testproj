@@ -237,6 +237,9 @@
                                 <rect key="frame" x="20" y="136" width="374" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveAction:" destination="pRL-LM-vFF" eventType="touchUpInside" id="ZXJ-Lu-kbK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-2l-jm5" userLabel="Delete Tag">
                                 <rect key="frame" x="20" y="186" width="374" height="30"/>
