@@ -6,22 +6,25 @@ class EditorViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var titleField: UITextField!
     
-    var selectedEntry: Entry?
-    
     fileprivate let reuseIdentifier = "TagCell"
-    
-    let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
-    let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
-    
     fileprivate let NOTES_PLACEHOLDER = "Notes..."
+    fileprivate let TAG_COLLECTION_CELL_XIB = "TagCollectionViewCell"
+    fileprivate let ID_TAG_EDITOR_VC = "tagEditor"
+    fileprivate let STORYBOARD_MAIN = "Main"
+    fileprivate let IMAGE_PENCIL = "Pencil"
+    fileprivate let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
+    fileprivate let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
+    
+    //Realm Objects
+    var selectedEntry: Entry?
+    var selectedTags = List<Tag>()
+    var defaultTags: Results<Tag>?
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         let realm = try! Realm()
         guard let entry = selectedEntry else {
             let entry = Entry()
             updateEntry(entry)
-            
-            
             //TODO: add error handling for if the device runs out of disk space
             try! realm.write {
                 realm.add(entry)
@@ -39,17 +42,12 @@ class EditorViewController: UIViewController {
         entry.notes = notesTextView.text
     }
     
-    var defaultTags: Results<Tag>?
-    
-    //let defaultTags = ["Book", "Movie", "Quote", "Idea", "Technology", "Product", "Marketing", "Work", "Random", "Fun"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        
+        self.collectionView.register(UINib(nibName: TAG_COLLECTION_CELL_XIB, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.contentMode = .scaleAspectFit
-        let logo = UIImage(named: "Pencil")
+        let logo = UIImage(named: IMAGE_PENCIL)
         imageView.image = logo
         self.navigationItem.titleView = imageView
         
@@ -59,7 +57,6 @@ class EditorViewController: UIViewController {
             self.notesTextView.textColor = COLOR_DARK_GRAY_TEXT
         }
         
-        //Retrieve existing tags from the realm
         let realm = try! Realm()
         defaultTags = realm.objects(Tag.self)
     }
@@ -74,15 +71,11 @@ class EditorViewController: UIViewController {
     
     func handleLongPress(_ sender: UIGestureRecognizer){
         let cell = sender.view as! TagCollectionViewCell
-        
-        let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor") as? TagEditorViewController
-        
+        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC) as? TagEditorViewController
         //tagEditorVC?.tagName = cell.button.titleLabel?.text
         let tagName = cell.button.titleLabel?.text
-        
         //TODO: need to make sure only one tag per name can be saved...
         let tag = defaultTags?.filter("name == %@", tagName!).first
-        
         tagEditorVC?.selectedTag = tag
         tagEditorVC?.isDeleteHidden = false
         self.navigationController?.present(tagEditorVC!, animated: true, completion:nil)
@@ -99,12 +92,8 @@ extension EditorViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! TagCollectionViewCell
-        
         var title: String
         if (indexPath.row == defaultTags?.count){
             cell.button.tagButtonDelegate = self
@@ -121,18 +110,14 @@ extension EditorViewController: UICollectionViewDataSource{
         }
         cell.button.setTitle(title, for: .normal)
         cell.backgroundColor = UIColor.clear
-        
-        // Configure the cell
         return cell
     }
 }
 
 extension EditorViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         var standardTagWidth: CGFloat = 30
         let standardTagHeight: CGFloat = 30
-        
         //TODO:Encapsulate in method
         if(indexPath.row != (defaultTags?.count)){
             let tagLength = CGFloat((defaultTags?[indexPath.row].name.characters.count)!)
@@ -157,7 +142,6 @@ extension EditorViewController: UITextViewDelegate{
         if(textView.text == NOTES_PLACEHOLDER){
             textView.text = ""
             textView.textColor = COLOR_DARK_GRAY_TEXT
-
         }
         textView.becomeFirstResponder()
     }
@@ -174,8 +158,7 @@ extension EditorViewController: UITextViewDelegate{
 
 extension EditorViewController: TagButtonDelegate{
     func didSelectAddTag(tagButton: TagButton) {
-        let tagEditorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tagEditor")
-        
+        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
         self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
     }
 }
