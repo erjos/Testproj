@@ -2,10 +2,12 @@ import UIKit
 import RealmSwift
 
 class EditorViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var titleField: UITextField!
     
+    //CONSTANTS
     fileprivate let reuseIdentifier = "TagCell"
     fileprivate let NOTES_PLACEHOLDER = "Notes..."
     fileprivate let TAG_COLLECTION_CELL_XIB = "TagCollectionViewCell"
@@ -38,6 +40,8 @@ class EditorViewController: UIViewController {
     }
     
     private func updateEntry(_ entry: Entry) {
+        //which tags are active...
+        
         entry.name = titleField.text!
         entry.notes = notesTextView.text
     }
@@ -73,7 +77,7 @@ class EditorViewController: UIViewController {
         let cell = sender.view as! TagCollectionViewCell
         let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC) as? TagEditorViewController
         //tagEditorVC?.tagName = cell.button.titleLabel?.text
-        let tagName = cell.button.titleLabel?.text
+        let tagName = cell.cellLabel.text
         //TODO: need to make sure only one tag per name can be saved...
         let tag = defaultTags?.filter("name == %@", tagName!).first
         tagEditorVC?.selectedTag = tag
@@ -96,21 +100,31 @@ extension EditorViewController: UICollectionViewDataSource{
                                                       for: indexPath) as! TagCollectionViewCell
         var title: String
         if (indexPath.row == defaultTags?.count){
-            cell.button.tagButtonDelegate = self
+            //cell.button.tagButtonDelegate = self
             title = "+"
         } else {
             //Gesture Config
-            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-            
-            //play with duration to get the right time
-            pressGesture.minimumPressDuration = 0.7
-            pressGesture.delaysTouchesBegan = true
-            cell.addGestureRecognizer(pressGesture)
+//            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+//            
+//            
+//            pressGesture.cancelsTouchesInView = false
+//            
+//            //play with duration to get the right time
+//            pressGesture.minimumPressDuration = 0.7
+//            pressGesture.delaysTouchesBegan = true
+//            cell.addGestureRecognizer(pressGesture)
             title = (defaultTags?[indexPath.row].name)!
         }
-        cell.button.setTitle(title, for: .normal)
+        cell.cellLabel.text = title
         cell.backgroundColor = UIColor.clear
         return cell
+    }
+}
+
+extension EditorViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
+        item.handleTap()
     }
 }
 
@@ -156,9 +170,13 @@ extension EditorViewController: UITextViewDelegate{
     }
 }
 
-extension EditorViewController: TagButtonDelegate{
-    func didSelectAddTag(tagButton: TagButton) {
-        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
-        self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
-    }
-}
+//extension EditorViewController: TagButtonDelegate{
+//    func didSelectTag() {
+//        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
+//    }
+//    
+//    func didSelectAddTag(tagButton: TagButton) {
+//        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
+//        self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
+//    }
+//}

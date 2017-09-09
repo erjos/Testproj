@@ -18,23 +18,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" alpha="0.78000000000000003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU9-El-XdR" customClass="TagButton" customModule="IdeaTracker" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJi-Ye-eMt">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-wG-xaB">
+                                <rect key="frame" x="5" y="17.5" width="40.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.46666666666666667" green="0.32549019607843138" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" title="Button">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
+                        <constraints>
+                            <constraint firstItem="6cf-wG-xaB" firstAttribute="centerY" secondItem="UJi-Ye-eMt" secondAttribute="centerY" id="BIA-xU-Xhg"/>
+                            <constraint firstItem="6cf-wG-xaB" firstAttribute="centerX" secondItem="UJi-Ye-eMt" secondAttribute="centerX" id="Z5H-qZ-Yhi"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ZU9-El-XdR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ea7-ok-Hru"/>
-                <constraint firstAttribute="bottom" secondItem="ZU9-El-XdR" secondAttribute="bottom" id="L2H-75-ega"/>
-                <constraint firstAttribute="trailing" secondItem="ZU9-El-XdR" secondAttribute="trailing" id="b0J-dE-pd5"/>
-                <constraint firstItem="ZU9-El-XdR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lAy-Br-6F3"/>
+                <constraint firstAttribute="trailing" secondItem="UJi-Ye-eMt" secondAttribute="trailing" id="NWc-VT-ThM"/>
+                <constraint firstAttribute="bottom" secondItem="UJi-Ye-eMt" secondAttribute="bottom" id="azp-bs-NZ0"/>
+                <constraint firstItem="UJi-Ye-eMt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bvb-wY-mbu"/>
+                <constraint firstItem="UJi-Ye-eMt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oJm-RT-Ekq"/>
             </constraints>
             <connections>
-                <outlet property="button" destination="ZU9-El-XdR" id="Xpv-2h-nRr"/>
+                <outlet property="background" destination="UJi-Ye-eMt" id="IIQ-xL-0ma"/>
+                <outlet property="cellLabel" destination="6cf-wG-xaB" id="Uge-pV-FQS"/>
             </connections>
         </collectionViewCell>
     </objects>
