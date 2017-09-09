@@ -6,17 +6,22 @@ class TagCollectionViewCell: UICollectionViewCell {
     
     var isTagActive: Bool?
     
+    weak var tagCellDelegate: TagCellDelegate?
+    
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var cellLabel: UILabel!
     
     func handleTap(){
         if(self.cellLabel?.text == "+"){
-            //Delegate callback method
-            //tagButtonDelegate?.didSelectAddTag(tagButton: self)
+            tagCellDelegate?.didSelectAddTag(tagCell: self)
         } else {
             let isSelected = (background.backgroundColor == selectedColor)
             background.backgroundColor = isSelected ? defaultColor : selectedColor
             isTagActive = !isSelected
         }
     }
+}
+
+protocol TagCellDelegate: class{
+    func didSelectAddTag(tagCell: TagCollectionViewCell)
 }

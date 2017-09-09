@@ -100,19 +100,19 @@ extension EditorViewController: UICollectionViewDataSource{
                                                       for: indexPath) as! TagCollectionViewCell
         var title: String
         if (indexPath.row == defaultTags?.count){
-            //cell.button.tagButtonDelegate = self
+            cell.tagCellDelegate = self
             title = "+"
         } else {
             //Gesture Config
-//            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-//            
-//            
-//            pressGesture.cancelsTouchesInView = false
-//            
-//            //play with duration to get the right time
-//            pressGesture.minimumPressDuration = 0.7
-//            pressGesture.delaysTouchesBegan = true
-//            cell.addGestureRecognizer(pressGesture)
+            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+            
+            
+            pressGesture.cancelsTouchesInView = false
+            
+            //play with duration to get the right time
+            pressGesture.minimumPressDuration = 0.7
+            pressGesture.delaysTouchesBegan = true
+            cell.addGestureRecognizer(pressGesture)
             title = (defaultTags?[indexPath.row].name)!
         }
         cell.cellLabel.text = title
@@ -170,13 +170,9 @@ extension EditorViewController: UITextViewDelegate{
     }
 }
 
-//extension EditorViewController: TagButtonDelegate{
-//    func didSelectTag() {
-//        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
-//    }
-//    
-//    func didSelectAddTag(tagButton: TagButton) {
-//        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
-//        self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
-//    }
-//}
+extension EditorViewController: TagCellDelegate{
+    func didSelectAddTag(tagCell: TagCollectionViewCell) {
+        let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC)
+        self.navigationController?.present(tagEditorVC, animated: true, completion: nil)
+    }
+}
