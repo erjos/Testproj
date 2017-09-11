@@ -44,17 +44,6 @@ class EditorViewController: UIViewController {
     }
     
     private func updateEntry(_ entry: Entry) {
-
-//        for i in 0..<(defaultTags?.count)!{
-//            let indexPath = IndexPath(row: i, section: 0)
-//            let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
-//            if(item.isTagActive){
-//                
-//                //remove this here - will do the appends/ removes immediately when the tag is selected
-//                entry.tags.append((defaultTags?[indexPath.row])!)
-//            }
-//        }
-        
         entry.name = titleField.text!
         entry.notes = notesTextView.text
     }
@@ -151,6 +140,11 @@ extension EditorViewController: UICollectionViewDelegate{
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
         item.handleTap()
         let realm = try! Realm()
+        
+        if(item.cellLabel.text! == "+"){
+            return
+        }
+        
         guard let tag = defaultTags?[indexPath.row] else{
             return
         }
