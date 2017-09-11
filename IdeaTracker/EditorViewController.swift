@@ -45,15 +45,15 @@ class EditorViewController: UIViewController {
     
     private func updateEntry(_ entry: Entry) {
 
-        for i in 0..<(defaultTags?.count)!{
-            let indexPath = IndexPath(row: i, section: 0)
-            let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
-            if(item.isTagActive){
-                
-                //remove this here - will do the appends/ removes immediately when the tag is selected
-                entry.tags.append((defaultTags?[indexPath.row])!)
-            }
-        }
+//        for i in 0..<(defaultTags?.count)!{
+//            let indexPath = IndexPath(row: i, section: 0)
+//            let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
+//            if(item.isTagActive){
+//                
+//                //remove this here - will do the appends/ removes immediately when the tag is selected
+//                entry.tags.append((defaultTags?[indexPath.row])!)
+//            }
+//        }
         
         entry.name = titleField.text!
         entry.notes = notesTextView.text
@@ -95,6 +95,7 @@ class EditorViewController: UIViewController {
         //tagEditorVC?.tagName = cell.button.titleLabel?.text
         let tagName = cell.cellLabel.text
         //TODO: need to make sure only one tag per name can be saved...
+        //Make the tags a primary key, w/o the name so the name can be changed, but then do not allow repeated names in the case that one already exists
         let tag = defaultTags?.filter("name == %@", tagName!).first
         tagEditorVC?.selectedTag = tag
         tagEditorVC?.isDeleteHidden = false
@@ -149,21 +150,39 @@ extension EditorViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
         item.handleTap()
+        let realm = try! Realm()
+        guard let tag = defaultTags?[indexPath.row] else{
+            return
+        }
+        
         if(item.isTagActive){
             //first need to get the tag that we want to append
-            guard let tag = defaultTags?[indexPath.row] else{
-                return
-            }
+            
             //determine if we use newEntry or selected entry
             if let update = selectedEntry {
-                update.tags.append(tag)
+                //if entry exists, write and update new tags in real-time
+                try! realm.write {
+                    update.tags.append(tag)
+                }
             }
             if let new = newEntry {
+                //if entry is new, add it to the object and wait until user hits save to write the object to the realm
                 new.tags.append(tag)
             }
         } else {
             //find index, remove item at index
             //remove
+            if let update = selectedEntry {
+                let index = update.tags.index(of: tag)
+                try! realm.write{
+                    update.tags.remove(objectAtIndex: index!)
+                }
+            }
+            
+            if let new = newEntry {
+                let index = new.tags.index(of: tag)
+                new.tags.remove(objectAtIndex: index!)
+            }
         }
     }
 }
