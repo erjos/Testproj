@@ -40,10 +40,19 @@ class EditorViewController: UIViewController {
     }
     
     private func updateEntry(_ entry: Entry) {
-        //which tags are active...
+        
+        //Need a function that examines the current state of the Entry and then removes tags that have been deselected and adds tags that have been updated? Do i want to do this on click of the tag button or on save of the entire entry...
+        for i in 0..<(defaultTags?.count)!{
+            let indexPath = IndexPath(row: i, section: 0)
+            let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
+            if(item.isTagActive){
+                entry.tags.append((defaultTags?[indexPath.row])!)
+            }
+        }
         
         entry.name = titleField.text!
         entry.notes = notesTextView.text
+        //can to appends and removes, but cant really set the variable...
     }
     
     override func viewDidLoad() {
@@ -105,10 +114,7 @@ extension EditorViewController: UICollectionViewDataSource{
         } else {
             //Gesture Config
             let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-            
-            
             pressGesture.cancelsTouchesInView = false
-            
             //play with duration to get the right time
             pressGesture.minimumPressDuration = 0.7
             pressGesture.delaysTouchesBegan = true
@@ -116,6 +122,16 @@ extension EditorViewController: UICollectionViewDataSource{
             title = (defaultTags?[indexPath.row].name)!
         }
         cell.cellLabel.text = title
+        
+        //Check if the title matches with current tags stored on this entry
+        if let entry = selectedEntry{
+            let isActive = entry.tags.contains(where: { (tag) -> Bool in
+                tag.name == title
+            })
+            cell.isTagActive = isActive
+            cell.background.backgroundColor = isActive ? cell.selectedColor : cell.defaultColor
+        }
+        
         cell.backgroundColor = UIColor.clear
         return cell
     }

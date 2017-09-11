@@ -17,7 +17,6 @@
 		866DA69F1F4F83AC00659B0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866DA69E1F4F83AC00659B0C /* Assets.xcassets */; };
 		866DA6A21F4F83AC00659B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866DA6A01F4F83AC00659B0C /* LaunchScreen.storyboard */; };
 		866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AB1F4F88E200659B0C /* EditorViewController.swift */; };
-		866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DA6AD1F4F9BEB00659B0C /* TagButton.swift */; };
 		868261411F59C96D00221074 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8682613D1F59C96D00221074 /* Tag.swift */; };
 		868261431F59C96D00221074 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8682613F1F59C96D00221074 /* Entry.swift */; };
 		86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B21F571A6400278A7C /* TagEditorViewController.swift */; };
@@ -51,7 +50,6 @@
 		866DA6A11F4F83AC00659B0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		866DA6A31F4F83AC00659B0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866DA6AB1F4F88E200659B0C /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
-		866DA6AD1F4F9BEB00659B0C /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		8682613D1F59C96D00221074 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = ../Tag.swift; sourceTree = "<group>"; };
 		8682613F1F59C96D00221074 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = ../Entry.swift; sourceTree = "<group>"; };
 		86B104B21F571A6400278A7C /* TagEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditorViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 		86B7FE961F4F9DBD000F5DA8 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
-				866DA6AD1F4F9BEB00659B0C /* TagButton.swift */,
 				86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */,
 				86CE01951F647EE900CD1338 /* TagCollectionViewCell.swift */,
 			);
@@ -222,7 +219,6 @@
 				86CE01961F647EE900CD1338 /* TagCollectionViewCell.swift in Sources */,
 				86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */,
 				868261411F59C96D00221074 /* Tag.swift in Sources */,
-				866DA6AE1F4F9BEB00659B0C /* TagButton.swift in Sources */,
 				866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */,
 				866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */,
 				868261431F59C96D00221074 /* Entry.swift in Sources */,
