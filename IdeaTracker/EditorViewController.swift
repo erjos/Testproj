@@ -19,40 +19,44 @@ class EditorViewController: UIViewController {
     
     //Realm Objects
     var selectedEntry: Entry?
+    var newEntry: Entry?
     var selectedTags = List<Tag>()
     var defaultTags: Results<Tag>?
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         let realm = try! Realm()
-        guard let entry = selectedEntry else {
-            let entry = Entry()
-            updateEntry(entry)
-            //TODO: add error handling for if the device runs out of disk space
+        
+        //TODO: test that this is nil in the case of a new entry
+        if let update = selectedEntry {
             try! realm.write {
-                realm.add(entry)
+                updateEntry(update)
             }
-            return
         }
         
-        try! realm.write {
-            updateEntry(entry)
+        //TODO: test that this is nil in the case of a selected entry
+        if let new = newEntry {
+            updateEntry(new)
+            //TODO: add error handling for if the device runs out of disk space
+            try! realm.write {
+                realm.add(new)
+            }
         }
     }
     
     private func updateEntry(_ entry: Entry) {
-        
-        //Need a function that examines the current state of the Entry and then removes tags that have been deselected and adds tags that have been updated? Do i want to do this on click of the tag button or on save of the entire entry...
+
         for i in 0..<(defaultTags?.count)!{
             let indexPath = IndexPath(row: i, section: 0)
             let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
             if(item.isTagActive){
+                
+                //remove this here - will do the appends/ removes immediately when the tag is selected
                 entry.tags.append((defaultTags?[indexPath.row])!)
             }
         }
         
         entry.name = titleField.text!
         entry.notes = notesTextView.text
-        //can to appends and removes, but cant really set the variable...
     }
     
     override func viewDidLoad() {
@@ -64,10 +68,13 @@ class EditorViewController: UIViewController {
         imageView.image = logo
         self.navigationItem.titleView = imageView
         
+        //If the selected entry is nil, then instantiate the new entry...
         if let currentEntry = selectedEntry {
             self.titleField.text = currentEntry.name
             self.notesTextView.text = currentEntry.notes
             self.notesTextView.textColor = COLOR_DARK_GRAY_TEXT
+        } else {
+            newEntry = Entry()
         }
         
         let realm = try! Realm()
@@ -124,6 +131,7 @@ extension EditorViewController: UICollectionViewDataSource{
         cell.cellLabel.text = title
         
         //Check if the title matches with current tags stored on this entry
+        //TODO: TEST THIS! YOU AINT KNOW IF IT WORK!
         if let entry = selectedEntry{
             let isActive = entry.tags.contains(where: { (tag) -> Bool in
                 tag.name == title
@@ -141,6 +149,22 @@ extension EditorViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
         item.handleTap()
+        if(item.isTagActive){
+            //first need to get the tag that we want to append
+            guard let tag = defaultTags?[indexPath.row] else{
+                return
+            }
+            //determine if we use newEntry or selected entry
+            if let update = selectedEntry {
+                update.tags.append(tag)
+            }
+            if let new = newEntry {
+                new.tags.append(tag)
+            }
+        } else {
+            //find index, remove item at index
+            //remove
+        }
     }
 }
 
