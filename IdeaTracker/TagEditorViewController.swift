@@ -42,6 +42,7 @@ class TagEditorViewController: UIViewController {
                 let defaultAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
                 alertController.addAction(defaultAction)
                 self.present(alertController, animated: true, completion: nil)
+                self.tagNameField.text = ""
             }
         }
     }
