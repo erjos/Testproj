@@ -18,8 +18,10 @@ class HomeViewController: UIViewController {
         imageView.image = logo
         self.navigationItem.titleView = imageView
         
+        entryTableView.register(UINib(nibName: "EntryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        //entryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        entryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        entryTableView.separatorColor = UIColor(red: 119/255, green: 83/255, blue: 50/255, alpha: 255/255)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,8 +54,8 @@ extension HomeViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entry = entries?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = entry?.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EntryTableViewCell
+        cell.entryName.text = entry?.name
         return cell
     }
 }
@@ -67,11 +69,10 @@ extension HomeViewController: UITableViewDelegate {
 }
 
 //APP TODOS
-//- make dividers on table view for main page the same color as the stroke dividers on the editor page
+
+// - Add Header to the table view - or style the space better
 
 //- add info popup to the editor that describes tags: "Think of tags as collections or folders you can use to order and quickly retrieve your saved entries. You can add multiple tags to your entries and create new custom tags. You can view your entries by tag and search for them as well."
-
-//- create function to create custom tags
 
 //- Tab bar on main page to display multiple views of data: table view of chronological order, collection view of tags/folders, etc.
 
