@@ -18,21 +18,23 @@ class TagEditorViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    //TODO: add delete function for the tags - see how it affects the overall entry object...
+    
     @IBAction func saveAction(_ sender: Any) {
         
         if let tag = tagName {
-            //update the tag name in realm - make sure this doesn't screw up other stuff before we add this feature...
+            //update the tag name in realm
+            //before we do this, create primary key ID's for tags - so that we can update the tag name without borking everything else
+            return
         }
         
         if let tagName = tagNameField.text{
-            //save the new tag to realm
             let realm = try! Realm()
             
-            //check if there are any tags with this name present.
+            //Should do a whitespace trim of the tagName just to be safe
             if(realm.objects(Tag.self).filter("name == %@", tagName).count == 0){
                 let tag = Tag()
                 tag.name = tagName
-                
                 try! realm.write {
                     realm.add(tag)
                 }
@@ -49,32 +51,12 @@ class TagEditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let tag = selectedTag{
             tagNameField.text = tag.name
         }
-        
         if let button = buttonTitle{
             saveButton.setTitle(button, for: .normal)
         }
-        
         deleteButton.isHidden = isDeleteHidden
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

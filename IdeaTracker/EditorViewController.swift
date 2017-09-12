@@ -83,8 +83,6 @@ class EditorViewController: UIViewController {
         let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC) as? TagEditorViewController
         //tagEditorVC?.tagName = cell.button.titleLabel?.text
         let tagName = cell.cellLabel.text
-        //TODO: need to make sure only one tag per name can be saved...
-        //Make the tags a primary key, w/o the name so the name can be changed, but then do not allow repeated names in the case that one already exists
         let tag = defaultTags?.filter("name == %@", tagName!).first
         tagEditorVC?.selectedTag = tag
         tagEditorVC?.isDeleteHidden = false
@@ -129,7 +127,6 @@ extension EditorViewController: UICollectionViewDataSource{
             cell.isTagActive = isActive
             cell.background.backgroundColor = isActive ? cell.selectedColor : cell.defaultColor
         }
-        
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -140,15 +137,12 @@ extension EditorViewController: UICollectionViewDelegate{
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
         item.handleTap()
         let realm = try! Realm()
-        
         if(item.cellLabel.text! == "+"){
             return
         }
-        
         guard let tag = defaultTags?[indexPath.row] else{
             return
         }
-        
         if(item.isTagActive){
             //first need to get the tag that we want to append
             
@@ -172,7 +166,6 @@ extension EditorViewController: UICollectionViewDelegate{
                     update.tags.remove(objectAtIndex: index!)
                 }
             }
-            
             if let new = newEntry {
                 let index = new.tags.index(of: tag)
                 new.tags.remove(objectAtIndex: index!)

@@ -22,6 +22,8 @@
 		86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B21F571A6400278A7C /* TagEditorViewController.swift */; };
 		86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */; };
 		86CE01961F647EE900CD1338 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE01951F647EE900CD1338 /* TagCollectionViewCell.swift */; };
+		86CE01991F6722CB00CD1338 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE01971F6722CB00CD1338 /* EntryTableViewCell.swift */; };
+		86CE019A1F6722CB00CD1338 /* EntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86CE01981F6722CB00CD1338 /* EntryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +57,8 @@
 		86B104B21F571A6400278A7C /* TagEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditorViewController.swift; sourceTree = "<group>"; };
 		86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		86CE01951F647EE900CD1338 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		86CE01971F6722CB00CD1338 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		86CE01981F6722CB00CD1338 /* EntryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			children = (
 				86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */,
 				86CE01951F647EE900CD1338 /* TagCollectionViewCell.swift */,
+				86CE01971F6722CB00CD1338 /* EntryTableViewCell.swift */,
+				86CE01981F6722CB00CD1338 /* EntryTableViewCell.xib */,
 			);
 			name = CustomControls;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			files = (
 				866DA6A21F4F83AC00659B0C /* LaunchScreen.storyboard in Resources */,
 				86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */,
+				86CE019A1F6722CB00CD1338 /* EntryTableViewCell.xib in Resources */,
 				866DA69F1F4F83AC00659B0C /* Assets.xcassets in Resources */,
 				866DA69A1F4F83AC00659B0C /* Main.storyboard in Resources */,
 			);
@@ -215,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86CE01991F6722CB00CD1338 /* EntryTableViewCell.swift in Sources */,
 				866DA6971F4F83AC00659B0C /* HomeViewController.swift in Sources */,
 				86CE01961F647EE900CD1338 /* TagCollectionViewCell.swift in Sources */,
 				86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */,
