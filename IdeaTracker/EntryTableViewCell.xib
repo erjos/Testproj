@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,28 +19,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entry Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0c-n0-dsP" userLabel="EntryName">
-                        <rect key="frame" x="8" y="11" width="133" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0c-n0-dsP" userLabel="EntryName">
+                        <rect key="frame" x="8" y="11" width="89.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dismiss" translatesAutoresizingMaskIntoConstraints="NO" id="bya-2N-eOD">
-                        <rect key="frame" x="317" y="0.0" width="45" height="43.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dismiss" translatesAutoresizingMaskIntoConstraints="NO" id="bya-2N-eOD">
+                        <rect key="frame" x="337" y="12" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="45" id="Khu-mP-ulO"/>
+                            <constraint firstAttribute="width" constant="20" id="Khu-mP-ulO"/>
+                            <constraint firstAttribute="height" constant="20" id="QA7-Hy-0AY"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="bya-2N-eOD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="CDe-Ep-pnA"/>
-                    <constraint firstAttribute="trailing" secondItem="bya-2N-eOD" secondAttribute="trailing" constant="5" id="RgA-WZ-i1Q"/>
-                    <constraint firstAttribute="bottom" secondItem="bya-2N-eOD" secondAttribute="bottom" id="TYL-aW-JDg"/>
+                    <constraint firstItem="bya-2N-eOD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5xK-GM-Y0v"/>
+                    <constraint firstItem="s0c-n0-dsP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QR5-TH-txX"/>
+                    <constraint firstAttribute="trailing" secondItem="bya-2N-eOD" secondAttribute="trailing" constant="10" id="RgA-WZ-i1Q"/>
+                    <constraint firstItem="s0c-n0-dsP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qZy-FP-MaL"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="dismiss" destination="bya-2N-eOD" id="LfG-pA-piM"/>
                 <outlet property="entryName" destination="s0c-n0-dsP" id="75C-Ef-DWt"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="61"/>

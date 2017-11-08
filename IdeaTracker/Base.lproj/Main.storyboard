@@ -28,17 +28,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-NH-hTv">
-                                <rect key="frame" x="20" y="64" width="374" height="672"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="20" y="64" width="374" height="375"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="ase-xi-yhz"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="S0X-h0-HtA"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Rnh-N0-eK6"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AeW-NH-hTv" secondAttribute="bottom" id="D2u-LP-2Fg"/>
                             <constraint firstItem="AeW-NH-hTv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ONA-Nb-HoK"/>
                             <constraint firstItem="AeW-NH-hTv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pqy-TI-Dbw"/>
                             <constraint firstItem="AeW-NH-hTv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pzE-35-1Mb"/>
@@ -58,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="137"/>
+            <point key="canvasLocation" x="939.13043478260875" y="136.95652173913044"/>
         </scene>
         <!--Editor View Controller-->
         <scene sceneID="HH8-Ru-04y">

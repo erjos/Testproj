@@ -19,8 +19,6 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = imageView
         
         entryTableView.register(UINib(nibName: "EntryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        //entryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
         entryTableView.separatorColor = UIColor(red: 119/255, green: 83/255, blue: 50/255, alpha: 255/255)
     }
     

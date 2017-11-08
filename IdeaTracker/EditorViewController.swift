@@ -78,7 +78,7 @@ class EditorViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func handleLongPress(_ sender: UIGestureRecognizer){
+    @objc func handleLongPress(_ sender: UIGestureRecognizer){
         let cell = sender.view as! TagCollectionViewCell
         let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC) as? TagEditorViewController
         //tagEditorVC?.tagName = cell.button.titleLabel?.text
@@ -163,12 +163,12 @@ extension EditorViewController: UICollectionViewDelegate{
             if let update = selectedEntry {
                 let index = update.tags.index(of: tag)
                 try! realm.write{
-                    update.tags.remove(objectAtIndex: index!)
+                    update.tags.remove(at: index!)
                 }
             }
             if let new = newEntry {
                 let index = new.tags.index(of: tag)
-                new.tags.remove(objectAtIndex: index!)
+                new.tags.remove(at: index!)
             }
         }
     }

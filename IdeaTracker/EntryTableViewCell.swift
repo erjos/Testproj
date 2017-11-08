@@ -2,7 +2,9 @@ import UIKit
 
 class EntryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dismiss: UIImageView!
     @IBOutlet weak var entryName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
