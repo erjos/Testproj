@@ -320,6 +320,10 @@
         <scene sceneID="S8Z-be-M6L">
             <objects>
                 <viewController id="Esv-7V-SfI" customClass="TagViewController" customModule="IdeaTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oAo-w6-mUn"/>
+                        <viewControllerLayoutGuide type="bottom" id="FPr-J0-hrA"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RYf-BJ-x6A">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -343,6 +347,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Esv-7V-SfI" id="dZc-Ua-N1p"/>
+                                    <outlet property="delegate" destination="Esv-7V-SfI" id="DFw-is-h8G"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -353,6 +361,9 @@
                             <constraint firstItem="Pkr-tU-LAE" firstAttribute="top" secondItem="RYf-BJ-x6A" secondAttribute="topMargin" id="yp6-xU-oh4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Pkr-tU-LAE" id="3u2-4N-Ssq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OB8-FN-aDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
