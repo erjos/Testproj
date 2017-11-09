@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzv-MZ-2IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112" y="137"/>
+            <point key="canvasLocation" x="1778" y="137"/>
         </scene>
         <!--Tag Editor View Controller-->
         <scene sceneID="jVK-fk-jcl">
@@ -290,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohk-9x-sHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728.8" y="821.73913043478262"/>
+            <point key="canvasLocation" x="2616" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VfP-oV-dTa">
@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pkr-tU-LAE">
-                                <rect key="frame" x="16" y="0.0" width="342" height="200"/>
+                                <rect key="frame" x="16" y="30" width="342" height="170"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="90H-Lr-rbo">
                                     <size key="itemSize" width="50" height="50"/>
@@ -358,7 +358,7 @@
                             <constraint firstItem="Pkr-tU-LAE" firstAttribute="leading" secondItem="RYf-BJ-x6A" secondAttribute="leadingMargin" id="1oy-W3-U6b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pkr-tU-LAE" secondAttribute="trailing" id="DzV-6R-Ezm"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Pkr-tU-LAE" secondAttribute="bottom" id="cup-u8-CoQ"/>
-                            <constraint firstItem="Pkr-tU-LAE" firstAttribute="top" secondItem="RYf-BJ-x6A" secondAttribute="topMargin" id="yp6-xU-oh4"/>
+                            <constraint firstItem="Pkr-tU-LAE" firstAttribute="top" secondItem="RYf-BJ-x6A" secondAttribute="topMargin" constant="30" id="yp6-xU-oh4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -367,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OB8-FN-aDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="-324"/>
+            <point key="canvasLocation" x="939" y="651"/>
         </scene>
     </scenes>
     <resources>
