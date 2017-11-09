@@ -19,6 +19,7 @@
 		868923691FB3A10200C21E5D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868923671FB3A10100C21E5D /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8689236B1FB3A10600C21E5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8689236A1FB3A10600C21E5D /* RealmSwift.framework */; };
 		8689236C1FB3A10600C21E5D /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8689236A1FB3A10600C21E5D /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86B0D1851FB4B72C00DE67A6 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B0D1841FB4B72C00DE67A6 /* TagViewController.swift */; };
 		86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B104B21F571A6400278A7C /* TagEditorViewController.swift */; };
 		86B7FE9E1F5121FF000F5DA8 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */; };
 		86CE01961F647EE900CD1338 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE01951F647EE900CD1338 /* TagCollectionViewCell.swift */; };
@@ -54,6 +55,7 @@
 		8682613F1F59C96D00221074 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = ../Entry.swift; sourceTree = "<group>"; };
 		868923671FB3A10100C21E5D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		8689236A1FB3A10600C21E5D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		86B0D1841FB4B72C00DE67A6 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		86B104B21F571A6400278A7C /* TagEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditorViewController.swift; sourceTree = "<group>"; };
 		86B7FE9C1F5121FF000F5DA8 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		86CE01951F647EE900CD1338 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				866DA6A31F4F83AC00659B0C /* Info.plist */,
 				866DA6AB1F4F88E200659B0C /* EditorViewController.swift */,
 				86B104B21F571A6400278A7C /* TagEditorViewController.swift */,
+				86B0D1841FB4B72C00DE67A6 /* TagViewController.swift */,
 			);
 			path = IdeaTracker;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				86B104B31F571A6400278A7C /* TagEditorViewController.swift in Sources */,
 				868261411F59C96D00221074 /* Tag.swift in Sources */,
 				866DA6951F4F83AC00659B0C /* AppDelegate.swift in Sources */,
+				86B0D1851FB4B72C00DE67A6 /* TagViewController.swift in Sources */,
 				866DA6AC1F4F88E200659B0C /* EditorViewController.swift in Sources */,
 				868261431F59C96D00221074 /* Entry.swift in Sources */,
 			);
