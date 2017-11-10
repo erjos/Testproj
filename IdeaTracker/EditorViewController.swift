@@ -110,41 +110,17 @@ class EditorViewController: UIViewController {
         return isActive
     }
     
+    //common
     func setupFinalCell(cell: TagCollectionViewCell) -> TagCollectionViewCell{
         cell.tagCellDelegate = self
         cell.cellLabel.text = TAG_LABEL_ADD
         return cell
     }
     
+    //common
     func setupNormalCells(cell: TagCollectionViewCell, indexPath: IndexPath) -> TagCollectionViewCell{
         cell.addGestureRecognizer(setupLongPressGesture())
         cell.cellLabel.text = (defaultTags?[indexPath.row].name)!
-        return cell
-    }
-}
-
-extension EditorViewController: UICollectionViewDataSource{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return defaultTags!.count + 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
-                                                      for: indexPath) as! TagCollectionViewCell
-        
-        let isFinalCell = (indexPath.row == defaultTags?.count)
-        
-        _ = isFinalCell ? setupFinalCell(cell: cell) : setupNormalCells(cell: cell, indexPath: indexPath)
-        
-        if let updateEntry = selectedEntry{
-            cell.isTagActive = isTagActive(entry: updateEntry, title: cell.cellLabel.text!)
-            cell.background.backgroundColor = cell.isTagActive ? cell.selectedColor : cell.defaultColor
-        }
-        cell.backgroundColor = UIColor.clear
         return cell
     }
     
@@ -170,6 +146,33 @@ extension EditorViewController: UICollectionViewDataSource{
             let index = new.tags.index(of: tag)
             new.tags.remove(at: index!)
         }
+    }
+}
+
+extension EditorViewController: UICollectionViewDataSource{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return defaultTags!.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
+                                                      for: indexPath) as! TagCollectionViewCell
+        
+        let isFinalCell = (indexPath.row == defaultTags?.count)
+        
+        _ = isFinalCell ? setupFinalCell(cell: cell) : setupNormalCells(cell: cell, indexPath: indexPath)
+        
+        //This is the only part of the method that differs right now for the editor
+        if let updateEntry = selectedEntry{
+            cell.isTagActive = isTagActive(entry: updateEntry, title: cell.cellLabel.text!)
+            cell.background.backgroundColor = cell.isTagActive ? cell.selectedColor : cell.defaultColor
+        }
+        cell.backgroundColor = UIColor.clear
+        return cell
     }
 }
 
@@ -212,7 +215,6 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3.0
     }
-    
 }
 
 //TODO: subclass textView to contain these characteristics, make the placeholder behave the same as the textField(doesn't dissappear until you start typing

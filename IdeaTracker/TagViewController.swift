@@ -37,6 +37,31 @@ class TagViewController: UIViewController {
         tagEditorVC?.isDeleteHidden = false
         self.navigationController?.present(tagEditorVC!, animated: true, completion:nil)
     }
+    
+    //Common
+    func setupLongPressGesture() -> UIGestureRecognizer{
+        //Gesture Config
+        let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        pressGesture.cancelsTouchesInView = false
+        //play with duration to get the right time
+        pressGesture.minimumPressDuration = 0.7
+        pressGesture.delaysTouchesBegan = true
+        return pressGesture
+    }
+    
+    //common
+    func setupFinalCell(cell: TagCollectionViewCell) -> TagCollectionViewCell{
+        cell.tagCellDelegate = self
+        cell.cellLabel.text = TAG_LABEL_ADD
+        return cell
+    }
+    
+    //common
+    func setupNormalCells(cell: TagCollectionViewCell, indexPath: IndexPath) -> TagCollectionViewCell{
+        cell.addGestureRecognizer(setupLongPressGesture())
+        cell.cellLabel.text = (defaultTags?[indexPath.row].name)!
+        return cell
+    }
 }
 
 extension TagViewController: UICollectionViewDataSource {
@@ -47,24 +72,8 @@ extension TagViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! TagCollectionViewCell
-        
-        //Repeated code from Editor VC is there a way to cut down on this
-        var title: String
-        if (indexPath.row == defaultTags?.count){
-            cell.tagCellDelegate = self
-            title = "+"
-        } else {
-            //Gesture Config
-            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-            pressGesture.cancelsTouchesInView = false
-            //play with duration to get the right time
-            pressGesture.minimumPressDuration = 0.7
-            pressGesture.delaysTouchesBegan = true
-            cell.addGestureRecognizer(pressGesture)
-            title = (defaultTags?[indexPath.row].name)!
-        }
-        cell.cellLabel.text = title
-        
+        let isFinalCell = (indexPath.row == defaultTags?.count)
+        _ = isFinalCell ? setupFinalCell(cell: cell) : setupNormalCells(cell: cell, indexPath: indexPath)
         return cell
     }
 }
@@ -72,7 +81,6 @@ extension TagViewController: UICollectionViewDataSource {
 extension TagViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
-        
         if(item.cellLabel.text! == TAG_LABEL_ADD){
             item.addButtonTapped()
             return
