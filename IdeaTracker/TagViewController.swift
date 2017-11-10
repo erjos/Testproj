@@ -9,6 +9,7 @@ class TagViewController: UIViewController {
     fileprivate let STORYBOARD_MAIN = "Main"
     fileprivate let reuseIdentifier = "TagCell"
     fileprivate let ID_TAG_EDITOR_VC = "tagEditor"
+    fileprivate let TAG_LABEL_ADD = "+"
     
     var defaultTags: Results<Tag>?
 
@@ -71,7 +72,12 @@ extension TagViewController: UICollectionViewDataSource {
 extension TagViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
-        item.handleTap()
+        
+        if(item.cellLabel.text! == TAG_LABEL_ADD){
+            item.addButtonTapped()
+            return
+        }
+        item.updateTagState()
     }
 }
 

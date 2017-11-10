@@ -14,6 +14,7 @@ class EditorViewController: UIViewController {
     fileprivate let ID_TAG_EDITOR_VC = "tagEditor"
     fileprivate let STORYBOARD_MAIN = "Main"
     fileprivate let IMAGE_PENCIL = "Pencil"
+    fileprivate let TAG_LABEL_ADD = "+"
     fileprivate let COLOR_LIGHT_GRAY_TEXT = UIColor(red: 203/255, green: 203/255, blue: 203/255, alpha: 255/255)
     fileprivate let COLOR_DARK_GRAY_TEXT = UIColor(red: 104/255, green: 104/255, blue: 104/255, alpha: 255/255)
     
@@ -111,7 +112,7 @@ class EditorViewController: UIViewController {
     
     func setupFinalCell(cell: TagCollectionViewCell) -> TagCollectionViewCell{
         cell.tagCellDelegate = self
-        cell.cellLabel.text = "+"
+        cell.cellLabel.text = TAG_LABEL_ADD
         return cell
     }
     
@@ -146,48 +147,49 @@ extension EditorViewController: UICollectionViewDataSource{
         cell.backgroundColor = UIColor.clear
         return cell
     }
+    
+    func addTagsToEntry(tag: Tag, realm: Realm){
+        if let update = selectedEntry {
+            try! realm.write {
+                update.tags.append(tag)
+            }
+        }
+        if let new = newEntry {
+            new.tags.append(tag)
+        }
+    }
+    
+    func removeTagsFromEntry(tag: Tag, realm: Realm){
+        if let update = selectedEntry {
+            let index = update.tags.index(of: tag)
+            try! realm.write{
+                update.tags.remove(at: index!)
+            }
+        }
+        if let new = newEntry {
+            let index = new.tags.index(of: tag)
+            new.tags.remove(at: index!)
+        }
+    }
 }
 
 extension EditorViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = collectionView.cellForItem(at: indexPath) as! TagCollectionViewCell
-        item.handleTap()
         let realm = try! Realm()
-        if(item.cellLabel.text! == "+"){
+        
+        if(item.cellLabel.text! == TAG_LABEL_ADD){
+            item.addButtonTapped()
             return
         }
+        
+        item.updateTagState()
+        
         guard let tag = defaultTags?[indexPath.row] else{
             return
         }
         
-        if(item.isTagActive){
-            //first need to get the tag that we want to append
-            
-            //determine if we use newEntry or selected entry
-            if let update = selectedEntry {
-                //if entry exists, write and update new tags in real-time
-                try! realm.write {
-                    update.tags.append(tag)
-                }
-            }
-            if let new = newEntry {
-                //if entry is new, add it to the object and wait until user hits save to write the object to the realm
-                new.tags.append(tag)
-            }
-        } else {
-            //find index, remove item at index
-            //remove
-            if let update = selectedEntry {
-                let index = update.tags.index(of: tag)
-                try! realm.write{
-                    update.tags.remove(at: index!)
-                }
-            }
-            if let new = newEntry {
-                let index = new.tags.index(of: tag)
-                new.tags.remove(at: index!)
-            }
-        }
+        _ = item.isTagActive ? addTagsToEntry(tag: tag, realm: realm) : removeTagsFromEntry(tag: tag, realm: realm)
     }
 }
 

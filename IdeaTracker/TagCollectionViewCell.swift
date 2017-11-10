@@ -11,7 +11,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var cellLabel: UILabel!
     
-    func handleTap(){
+    func updateTagState(){
         if(self.cellLabel?.text == "+"){
             tagCellDelegate?.didSelectAddTag(tagCell: self)
         } else {
@@ -19,6 +19,10 @@ class TagCollectionViewCell: UICollectionViewCell {
             background.backgroundColor = isSelected ? defaultColor : selectedColor
             isTagActive = !isSelected
         }
+    }
+    
+    func addButtonTapped(){
+        tagCellDelegate?.didSelectAddTag(tagCell: self)
     }
 }
 
