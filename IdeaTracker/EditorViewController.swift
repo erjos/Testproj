@@ -78,6 +78,7 @@ class EditorViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    //Common
     @objc func handleLongPress(_ sender: UIGestureRecognizer){
         let cell = sender.view as! TagCollectionViewCell
         let tagEditorVC = UIStoryboard.init(name: STORYBOARD_MAIN, bundle: nil).instantiateViewController(withIdentifier: ID_TAG_EDITOR_VC) as? TagEditorViewController
@@ -87,6 +88,37 @@ class EditorViewController: UIViewController {
         tagEditorVC?.selectedTag = tag
         tagEditorVC?.isDeleteHidden = false
         self.navigationController?.present(tagEditorVC!, animated: true, completion:nil)
+    }
+    
+    //Common
+    func setupLongPressGesture() -> UIGestureRecognizer{
+        //Gesture Config
+        let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        pressGesture.cancelsTouchesInView = false
+        //play with duration to get the right time
+        pressGesture.minimumPressDuration = 0.7
+        pressGesture.delaysTouchesBegan = true
+        return pressGesture
+    }
+    
+    //Check if a cell title matches with current tags stored on an entry
+    func isTagActive(entry: Entry, title: String) -> Bool {
+        let isActive = entry.tags.contains(where: { (tag) -> Bool in
+            tag.name == title
+        })
+        return isActive
+    }
+    
+    func setupFinalCell(cell: TagCollectionViewCell) -> TagCollectionViewCell{
+        cell.tagCellDelegate = self
+        cell.cellLabel.text = "+"
+        return cell
+    }
+    
+    func setupNormalCells(cell: TagCollectionViewCell, indexPath: IndexPath) -> TagCollectionViewCell{
+        cell.addGestureRecognizer(setupLongPressGesture())
+        cell.cellLabel.text = (defaultTags?[indexPath.row].name)!
+        return cell
     }
 }
 
@@ -102,30 +134,14 @@ extension EditorViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! TagCollectionViewCell
-        var title: String
-        if (indexPath.row == defaultTags?.count){
-            cell.tagCellDelegate = self
-            title = "+"
-        } else {
-            //Gesture Config
-            let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-            pressGesture.cancelsTouchesInView = false
-            //play with duration to get the right time
-            pressGesture.minimumPressDuration = 0.7
-            pressGesture.delaysTouchesBegan = true
-            cell.addGestureRecognizer(pressGesture)
-            title = (defaultTags?[indexPath.row].name)!
-        }
-        cell.cellLabel.text = title
         
-        //Check if the title matches with current tags stored on this entry
-        //TODO: TEST THIS! YOU AINT KNOW IF IT WORK!
-        if let entry = selectedEntry{
-            let isActive = entry.tags.contains(where: { (tag) -> Bool in
-                tag.name == title
-            })
-            cell.isTagActive = isActive
-            cell.background.backgroundColor = isActive ? cell.selectedColor : cell.defaultColor
+        let isFinalCell = (indexPath.row == defaultTags?.count)
+        
+        _ = isFinalCell ? setupFinalCell(cell: cell) : setupNormalCells(cell: cell, indexPath: indexPath)
+        
+        if let updateEntry = selectedEntry{
+            cell.isTagActive = isTagActive(entry: updateEntry, title: cell.cellLabel.text!)
+            cell.background.backgroundColor = cell.isTagActive ? cell.selectedColor : cell.defaultColor
         }
         cell.backgroundColor = UIColor.clear
         return cell
@@ -143,6 +159,7 @@ extension EditorViewController: UICollectionViewDelegate{
         guard let tag = defaultTags?[indexPath.row] else{
             return
         }
+        
         if(item.isTagActive){
             //first need to get the tag that we want to append
             
