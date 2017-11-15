@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "handleTap()"
+            landmarkName = "updateTagState()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

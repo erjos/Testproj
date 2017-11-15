@@ -166,11 +166,12 @@ extension EditorViewController: UICollectionViewDataSource{
         
         _ = isFinalCell ? setupFinalCell(cell: cell) : setupNormalCells(cell: cell, indexPath: indexPath)
         
-        //This is the only part of the method that differs right now for the editor
+        //Different from TagViewController
         if let updateEntry = selectedEntry{
             cell.isTagActive = isTagActive(entry: updateEntry, title: cell.cellLabel.text!)
             cell.background.backgroundColor = cell.isTagActive ? cell.selectedColor : cell.defaultColor
         }
+        
         cell.backgroundColor = UIColor.clear
         return cell
     }
