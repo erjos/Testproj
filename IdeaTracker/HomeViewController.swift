@@ -7,10 +7,19 @@ class HomeViewController: UIViewController {
     
     //should always be nil unless a user clicks an entry from the table
     var selectedEntry: Entry?
-    var selectedTag: Tag?
 
     @IBOutlet weak var entryTableView: UITableView!
     @IBOutlet weak var tagCollectionView: UICollectionView!
+    
+    //All the tag stuff
+    fileprivate let TAG_COLLECTION_CELL_XIB = "TagCollectionViewCell"
+    fileprivate let STORYBOARD_MAIN = "Main"
+    fileprivate let reuseIdentifier = "TagCell"
+    fileprivate let ID_TAG_EDITOR_VC = "tagEditor"
+    fileprivate let TAG_LABEL_ADD = "+"
+    
+    var defaultTags: Results<Tag>?
+    var selectedTag: Tag?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +59,6 @@ class HomeViewController: UIViewController {
             vc.selectedEntry = self.selectedEntry
         }
     }
-    
-    //All the tag stuff
-    fileprivate let TAG_COLLECTION_CELL_XIB = "TagCollectionViewCell"
-    fileprivate let STORYBOARD_MAIN = "Main"
-    fileprivate let reuseIdentifier = "TagCell"
-    fileprivate let ID_TAG_EDITOR_VC = "tagEditor"
-    fileprivate let TAG_LABEL_ADD = "+"
-    
-    var defaultTags: Results<Tag>?
     
     //repeated code from Editor VC
     @objc func handleLongPress(_ sender: UIGestureRecognizer){
@@ -101,25 +101,26 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(selectedTag != nil){
+            //don't know why this filter isn't working, should probably just pull directly from realm
+            let realm = try! Realm()
+            entries = realm.objects(Entry.self).filter("ANY tags.name == %@", self.selectedTag?.name)
+        }
         return (entries?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let filterByTag = false
+        
         var entry: Entry?
         
-        if(filterByTag){
-            let filteredEntries = entries?.filter({ (entry) -> Bool in
-                entry.tags.contains(self.selectedTag!)
-            })
-            entry = filteredEntries![indexPath.row]
-        } else {
-            entry = entries?[indexPath.row]
+        entry = entries?[indexPath.row]
+        
+        guard let currentEntry = entry else {
+            return EntryTableViewCell()
         }
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EntryTableViewCell
-        cell.entryName.text = entry?.name
+        cell.entryName.text = currentEntry.name
         return cell
     }
 }
@@ -139,7 +140,23 @@ extension HomeViewController: UICollectionViewDelegate {
             item.addButtonTapped()
             return
         }
+        
+        //need to address the issue of selecting multiple tags at once, maybe change selected tag to selected tags list
+        //set selected tag to nil if the tag is deselected
         item.updateTagState()
+        
+        if(item.isTagActive){
+            let tagName = item.cellLabel.text
+            let tag = defaultTags?.filter("name == %@", tagName!).first
+            selectedTag = tag!
+        } else {
+            selectedTag = nil
+            //repeated code
+            let realm = try! Realm()
+            entries = realm.objects(Entry.self)
+        }
+        
+        self.entryTableView.reloadData()
     }
 }
 
