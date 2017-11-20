@@ -85,6 +85,7 @@ class HomeViewController: UIViewController {
     
     //common
     func setupFinalCell(cell: TagCollectionViewCell) -> TagCollectionViewCell{
+        cell.entryCount.isHidden = true
         cell.tagCellDelegate = self
         cell.cellLabel.text = TAG_LABEL_ADD
         return cell
@@ -94,6 +95,7 @@ class HomeViewController: UIViewController {
     func setupNormalCells(cell: TagCollectionViewCell, indexPath: IndexPath) -> TagCollectionViewCell{
         cell.addGestureRecognizer(setupLongPressGesture())
         cell.cellLabel.text = (defaultTags?[indexPath.row].name)!
+        cell.entryCount.text = defaultTags?[indexPath.row].entries.count.description
         return cell
     }
 }
@@ -102,7 +104,6 @@ extension HomeViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(selectedTag != nil){
-            //don't know why this filter isn't working, should probably just pull directly from realm
             let realm = try! Realm()
             entries = realm.objects(Entry.self).filter("ANY tags.name == %@", self.selectedTag?.name)
         }
@@ -141,10 +142,9 @@ extension HomeViewController: UICollectionViewDelegate {
             return
         }
         
-        //need to address the issue of selecting multiple tags at once, maybe change selected tag to selected tags list
+        //TODO: need to address the issue of selecting multiple tags at once, maybe change selected tag to selected tags list
         //set selected tag to nil if the tag is deselected
         item.updateTagState()
-        
         if(item.isTagActive){
             let tagName = item.cellLabel.text
             let tag = defaultTags?.filter("name == %@", tagName!).first
@@ -157,6 +157,27 @@ extension HomeViewController: UICollectionViewDelegate {
         }
         
         self.entryTableView.reloadData()
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var standardTagWidth: CGFloat = 80
+        let standardTagHeight: CGFloat = 30
+        //TODO:Encapsulate in method
+//        if(indexPath.row != (defaultTags?.count)){
+//            let tagLength = CGFloat((defaultTags?[indexPath.row].name.characters.count)!)
+//            if(tagLength > 3){
+//                let diff:CGFloat = tagLength - 3
+//                let space:CGFloat = diff * 10
+//                standardTagWidth = 30 + space
+//            }
+//        }
+        return CGSize(width: standardTagWidth, height: standardTagHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
     }
 }
 

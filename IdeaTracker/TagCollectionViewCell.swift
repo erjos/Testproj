@@ -10,6 +10,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var cellLabel: UILabel!
+    @IBOutlet weak var entryCount: UILabel!
     
     func updateTagState(){
         if(self.cellLabel?.text == "+"){

@@ -112,6 +112,7 @@ class EditorViewController: UIViewController {
     
     //common
     func setupFinalCell(cell: TagCollectionViewCell) -> TagCollectionViewCell{
+        cell.entryCount.isHidden = true
         cell.tagCellDelegate = self
         cell.cellLabel.text = TAG_LABEL_ADD
         return cell
@@ -119,6 +120,7 @@ class EditorViewController: UIViewController {
     
     //common
     func setupNormalCells(cell: TagCollectionViewCell, indexPath: IndexPath) -> TagCollectionViewCell{
+        cell.entryCount.isHidden = true
         cell.addGestureRecognizer(setupLongPressGesture())
         cell.cellLabel.text = (defaultTags?[indexPath.row].name)!
         return cell

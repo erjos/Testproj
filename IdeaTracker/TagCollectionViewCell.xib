@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,9 +21,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJi-Ye-eMt">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-wG-xaB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-wG-xaB">
                                 <rect key="frame" x="5" y="17.5" width="40.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1b3-Qz-KnR" userLabel="Entry Count Label">
+                                <rect key="frame" x="35" y="0.0" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="eBl-Va-f2V"/>
+                                    <constraint firstAttribute="height" constant="15" id="vIo-a0-eRg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -31,7 +41,10 @@
                         <color key="backgroundColor" red="0.46666666666666667" green="0.32549019607843138" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6cf-wG-xaB" firstAttribute="centerY" secondItem="UJi-Ye-eMt" secondAttribute="centerY" id="BIA-xU-Xhg"/>
-                            <constraint firstItem="6cf-wG-xaB" firstAttribute="centerX" secondItem="UJi-Ye-eMt" secondAttribute="centerX" id="Z5H-qZ-Yhi"/>
+                            <constraint firstAttribute="trailing" secondItem="1b3-Qz-KnR" secondAttribute="trailing" id="Kgi-LS-v05"/>
+                            <constraint firstItem="6cf-wG-xaB" firstAttribute="leading" secondItem="UJi-Ye-eMt" secondAttribute="leading" constant="5" id="Kjb-Ku-4GU"/>
+                            <constraint firstItem="1b3-Qz-KnR" firstAttribute="top" secondItem="UJi-Ye-eMt" secondAttribute="top" id="Ro2-AK-4hq"/>
+                            <constraint firstAttribute="trailing" secondItem="6cf-wG-xaB" secondAttribute="trailing" constant="5" id="p5k-iA-msB"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -45,6 +58,7 @@
             <connections>
                 <outlet property="background" destination="UJi-Ye-eMt" id="IIQ-xL-0ma"/>
                 <outlet property="cellLabel" destination="6cf-wG-xaB" id="Uge-pV-FQS"/>
+                <outlet property="entryCount" destination="1b3-Qz-KnR" id="7bp-Q6-Tnj"/>
             </connections>
         </collectionViewCell>
     </objects>
